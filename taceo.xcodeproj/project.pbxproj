@@ -13,6 +13,13 @@
 		FA3858A921678FE600C7718D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3858A821678FE600C7718D /* Assets.xcassets */; };
 		FA3858AC21678FE600C7718D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3858AA21678FE600C7718D /* LaunchScreen.storyboard */; };
 		FA3858B62167981300C7718D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858B52167981300C7718D /* GameViewController.swift */; };
+		FA3858D921683B4800C7718D /* TaceoVibrationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */; };
+		FA3858FB216ED89D00C7718D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858FA216ED89D00C7718D /* Constants.swift */; };
+		FA3858FD216ED93900C7718D /* GamemodeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858FC216ED93900C7718D /* GamemodeSelectionViewController.swift */; };
+		FA3858FF216EFD5E00C7718D /* TaceoColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858FE216EFD5E00C7718D /* TaceoColors.swift */; };
+		FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385901216F21EF00C7718D /* SegueFromLeft.swift */; };
+		FA385904216F233100C7718D /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385903216F233100C7718D /* SegueFromRight.swift */; };
+		FA385906216F257100C7718D /* UnwindSegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385905216F257100C7718D /* UnwindSegueFromRight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		FA3858AB21678FE600C7718D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3858AD21678FE600C7718D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3858B52167981300C7718D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaceoVibrationControl.swift; sourceTree = "<group>"; };
+		FA3858FA216ED89D00C7718D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA3858FC216ED93900C7718D /* GamemodeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamemodeSelectionViewController.swift; sourceTree = "<group>"; };
+		FA3858FE216EFD5E00C7718D /* TaceoColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaceoColors.swift; sourceTree = "<group>"; };
+		FA385901216F21EF00C7718D /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		FA385903216F233100C7718D /* SegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
+		FA385905216F257100C7718D /* UnwindSegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindSegueFromRight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,8 @@
 		FA3858A021678FE300C7718D /* taceo */ = {
 			isa = PBXGroup;
 			children = (
+				FA385900216F21DD00C7718D /* Models */,
+				FA3858D7216839C300C7718D /* Supporting Files */,
 				FA3858B4216797D900C7718D /* Storyboards */,
 				FA3858B3216797CA00C7718D /* View Controllers */,
 				FA3858A121678FE300C7718D /* AppDelegate.swift */,
@@ -70,6 +86,7 @@
 			children = (
 				FA3858A321678FE300C7718D /* ViewController.swift */,
 				FA3858B52167981300C7718D /* GameViewController.swift */,
+				FA3858FC216ED93900C7718D /* GamemodeSelectionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -81,6 +98,26 @@
 				FA3858AA21678FE600C7718D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA3858D7216839C300C7718D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */,
+				FA3858FA216ED89D00C7718D /* Constants.swift */,
+				FA3858FE216EFD5E00C7718D /* TaceoColors.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA385900216F21DD00C7718D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA385901216F21EF00C7718D /* SegueFromLeft.swift */,
+				FA385903216F233100C7718D /* SegueFromRight.swift */,
+				FA385905216F257100C7718D /* UnwindSegueFromRight.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +191,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3858FB216ED89D00C7718D /* Constants.swift in Sources */,
+				FA3858D921683B4800C7718D /* TaceoVibrationControl.swift in Sources */,
 				FA3858A421678FE300C7718D /* ViewController.swift in Sources */,
+				FA3858FF216EFD5E00C7718D /* TaceoColors.swift in Sources */,
 				FA3858B62167981300C7718D /* GameViewController.swift in Sources */,
+				FA3858FD216ED93900C7718D /* GamemodeSelectionViewController.swift in Sources */,
+				FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */,
+				FA385906216F257100C7718D /* UnwindSegueFromRight.swift in Sources */,
 				FA3858A221678FE300C7718D /* AppDelegate.swift in Sources */,
+				FA385904216F233100C7718D /* SegueFromRight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,22 +10,225 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Gamemode Selection View Controller-->
+        <scene sceneID="hf9-5h-iia">
+            <objects>
+                <viewController id="wzL-0k-WLs" customClass="GamemodeSelectionViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Zb-tK-Ttk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nn-Fg-FQx">
+                                <rect key="frame" x="0.0" y="453" width="414" height="279"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mp-yP-rTS">
+                                        <rect key="frame" x="15" y="123.5" width="384" height="140.5"/>
+                                        <string key="text">You and a friend take turns adding a tap pattern to the sequence. You must repeat the entire sequence each time before adding a new one. Try not to mess it up.</string>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiplayer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoT-FW-8gl">
+                                        <rect key="frame" x="15" y="15" width="384" height="93.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="49"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-x7-6xR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="279"/>
+                                        <connections>
+                                            <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="multiplayerChosen" customClass="UnwindSegueFromRight" customModule="taceo" customModuleProvider="target" unwindAction="unwindWithSegue:" id="ELG-UF-iAy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.87066760616160388" blue="0.081968285354725001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6mp-yP-rTS" secondAttribute="trailing" constant="15" id="CPI-Yk-7mK"/>
+                                    <constraint firstItem="6mp-yP-rTS" firstAttribute="top" secondItem="AoT-FW-8gl" secondAttribute="bottom" constant="15" id="CRi-yr-Dlm"/>
+                                    <constraint firstAttribute="bottom" secondItem="6mp-yP-rTS" secondAttribute="bottom" constant="15" id="DgE-bs-Gpa"/>
+                                    <constraint firstItem="AoT-FW-8gl" firstAttribute="top" secondItem="7nn-Fg-FQx" secondAttribute="top" constant="15" id="JIw-Jw-fEV"/>
+                                    <constraint firstItem="UjU-x7-6xR" firstAttribute="leading" secondItem="7nn-Fg-FQx" secondAttribute="leading" id="MTG-zm-XsW"/>
+                                    <constraint firstItem="6mp-yP-rTS" firstAttribute="height" secondItem="AoT-FW-8gl" secondAttribute="height" multiplier="3:2" id="RFp-uL-Xew"/>
+                                    <constraint firstAttribute="trailing" secondItem="UjU-x7-6xR" secondAttribute="trailing" id="Up0-NX-0fs"/>
+                                    <constraint firstItem="UjU-x7-6xR" firstAttribute="top" secondItem="7nn-Fg-FQx" secondAttribute="top" id="WtZ-4n-2VG"/>
+                                    <constraint firstAttribute="trailing" secondItem="AoT-FW-8gl" secondAttribute="trailing" constant="15" id="aTB-g3-bzG"/>
+                                    <constraint firstItem="AoT-FW-8gl" firstAttribute="leading" secondItem="7nn-Fg-FQx" secondAttribute="leading" constant="15" id="sWe-wB-QFJ"/>
+                                    <constraint firstItem="6mp-yP-rTS" firstAttribute="leading" secondItem="7nn-Fg-FQx" secondAttribute="leading" constant="15" id="tnA-co-Egv"/>
+                                    <constraint firstAttribute="bottom" secondItem="UjU-x7-6xR" secondAttribute="bottom" id="wGk-0a-kx5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqu-Cy-gxd">
+                                <rect key="frame" x="0.0" y="174" width="414" height="279"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n8-QM-XNN">
+                                        <rect key="frame" x="15" y="15" width="384" height="93.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="49"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzG-Nu-eJx">
+                                        <rect key="frame" x="15" y="123.5" width="384" height="140.5"/>
+                                        <string key="text">Receive an ever growing sequence of vibrations and corrresponding tap patterns from the computer. Try to correctly touch the screen as many times as you can.</string>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-p0-gLH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="279"/>
+                                        <connections>
+                                            <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="classicChosen" customClass="UnwindSegueFromRight" customModule="taceo" customModuleProvider="target" unwindAction="unwindWithSegue:" id="s4n-1V-FsA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.24099152875200291" blue="0.68505053430348872" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="wzG-Nu-eJx" secondAttribute="bottom" constant="15" id="AhA-sj-tSw"/>
+                                    <constraint firstItem="6n8-QM-XNN" firstAttribute="leading" secondItem="Fqu-Cy-gxd" secondAttribute="leading" constant="15" id="HJF-qr-BmH"/>
+                                    <constraint firstAttribute="bottom" secondItem="8fp-p0-gLH" secondAttribute="bottom" id="RYO-hk-dnY"/>
+                                    <constraint firstItem="wzG-Nu-eJx" firstAttribute="leading" secondItem="Fqu-Cy-gxd" secondAttribute="leading" constant="15" id="aXK-Ur-WkE"/>
+                                    <constraint firstAttribute="trailing" secondItem="6n8-QM-XNN" secondAttribute="trailing" constant="15" id="auP-Og-UkQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="wzG-Nu-eJx" secondAttribute="trailing" constant="15" id="dib-W2-vpT"/>
+                                    <constraint firstItem="wzG-Nu-eJx" firstAttribute="top" secondItem="6n8-QM-XNN" secondAttribute="bottom" constant="15" id="hlZ-FY-hZu"/>
+                                    <constraint firstItem="6n8-QM-XNN" firstAttribute="top" secondItem="Fqu-Cy-gxd" secondAttribute="top" constant="15" id="mM6-Jl-wqM"/>
+                                    <constraint firstItem="8fp-p0-gLH" firstAttribute="top" secondItem="Fqu-Cy-gxd" secondAttribute="top" id="pXz-K6-xd6"/>
+                                    <constraint firstItem="wzG-Nu-eJx" firstAttribute="height" secondItem="6n8-QM-XNN" secondAttribute="height" multiplier="3:2" id="t7e-5H-2QB"/>
+                                    <constraint firstAttribute="trailing" secondItem="8fp-p0-gLH" secondAttribute="trailing" id="udg-fA-dWE"/>
+                                    <constraint firstItem="8fp-p0-gLH" firstAttribute="leading" secondItem="Fqu-Cy-gxd" secondAttribute="leading" id="wf1-Wb-861"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="leading" secondItem="AzA-Ou-63a" secondAttribute="leading" id="2NV-tY-Xqw"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="bottom" secondItem="Fqu-Cy-gxd" secondAttribute="bottom" constant="15" id="4z7-lL-16N"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="top" secondItem="AzA-Ou-63a" secondAttribute="top" constant="15" id="9B6-uC-K6u">
+                                <variation key="heightClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="bottom" secondItem="7nn-Fg-FQx" secondAttribute="bottom" constant="130" id="9mG-GI-Iju"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="bottom" secondItem="7nn-Fg-FQx" secondAttribute="bottom" constant="15" id="BwK-f9-32h">
+                                <variation key="heightClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="top" secondItem="AzA-Ou-63a" secondAttribute="top" constant="15" id="Cl9-Tc-WGS"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="leading" secondItem="Fqu-Cy-gxd" secondAttribute="trailing" id="Hxb-cg-L8R"/>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="top" secondItem="AzA-Ou-63a" secondAttribute="top" constant="130" id="SMV-4x-8cF"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="leading" secondItem="Fqu-Cy-gxd" secondAttribute="trailing" id="SXd-PD-aj4">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="trailing" secondItem="Fqu-Cy-gxd" secondAttribute="trailing" id="VgO-1x-I9S"/>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="top" secondItem="AzA-Ou-63a" secondAttribute="top" constant="60" id="Y3Q-oT-gkS"/>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="leading" secondItem="AzA-Ou-63a" secondAttribute="leading" id="ZHd-X8-195"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="bottom" secondItem="Fqu-Cy-gxd" secondAttribute="bottom" constant="15" id="ZUn-SP-36s">
+                                <variation key="heightClass=compact" constant="60"/>
+                            </constraint>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="top" secondItem="Fqu-Cy-gxd" secondAttribute="bottom" id="ar7-0w-J6T"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="top" secondItem="Fqu-Cy-gxd" secondAttribute="bottom" constant="15" id="c4y-cK-SYg"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="bottom" secondItem="7nn-Fg-FQx" secondAttribute="bottom" constant="30" id="eqI-Q0-XUq">
+                                <variation key="heightClass=compact" constant="60"/>
+                            </constraint>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="trailing" secondItem="AzA-Ou-63a" secondAttribute="trailing" id="hm3-kx-qgf"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="leading" secondItem="6Zb-tK-Ttk" secondAttribute="leading" id="lvP-ks-JCL"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="height" secondItem="Fqu-Cy-gxd" secondAttribute="height" id="mol-6q-wGf"/>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="leading" secondItem="AzA-Ou-63a" secondAttribute="leading" id="u0U-eb-3EO"/>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="top" secondItem="6Zb-tK-Ttk" secondAttribute="top" constant="60" id="uKT-vq-Dwg"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="trailing" secondItem="7nn-Fg-FQx" secondAttribute="trailing" id="w7f-DH-gdm">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="7nn-Fg-FQx" firstAttribute="width" secondItem="Fqu-Cy-gxd" secondAttribute="width" id="wo7-xs-7Rb"/>
+                            <constraint firstItem="AzA-Ou-63a" firstAttribute="trailing" secondItem="7nn-Fg-FQx" secondAttribute="trailing" id="yKK-JN-hfY"/>
+                            <constraint firstItem="Fqu-Cy-gxd" firstAttribute="leading" secondItem="AzA-Ou-63a" secondAttribute="leading" id="zTg-Na-RvX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AzA-Ou-63a"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4z7-lL-16N"/>
+                                <exclude reference="BwK-f9-32h"/>
+                                <exclude reference="Cl9-Tc-WGS"/>
+                                <exclude reference="Y3Q-oT-gkS"/>
+                                <exclude reference="ZUn-SP-36s"/>
+                                <exclude reference="u0U-eb-3EO"/>
+                                <exclude reference="zTg-Na-RvX"/>
+                                <exclude reference="9B6-uC-K6u"/>
+                                <exclude reference="Hxb-cg-L8R"/>
+                                <exclude reference="SXd-PD-aj4"/>
+                                <exclude reference="c4y-cK-SYg"/>
+                                <exclude reference="eqI-Q0-XUq"/>
+                                <exclude reference="hm3-kx-qgf"/>
+                                <exclude reference="lvP-ks-JCL"/>
+                                <exclude reference="uKT-vq-Dwg"/>
+                                <exclude reference="w7f-DH-gdm"/>
+                                <exclude reference="wo7-xs-7Rb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="4z7-lL-16N"/>
+                                <exclude reference="9mG-GI-Iju"/>
+                                <exclude reference="BwK-f9-32h"/>
+                                <exclude reference="VgO-1x-I9S"/>
+                                <exclude reference="yKK-JN-hfY"/>
+                                <exclude reference="Cl9-Tc-WGS"/>
+                                <exclude reference="SMV-4x-8cF"/>
+                                <include reference="Y3Q-oT-gkS"/>
+                                <exclude reference="ZHd-X8-195"/>
+                                <include reference="ZUn-SP-36s"/>
+                                <exclude reference="u0U-eb-3EO"/>
+                                <include reference="zTg-Na-RvX"/>
+                                <exclude reference="2NV-tY-Xqw"/>
+                                <exclude reference="9B6-uC-K6u"/>
+                                <include reference="Hxb-cg-L8R"/>
+                                <exclude reference="SXd-PD-aj4"/>
+                                <exclude reference="ar7-0w-J6T"/>
+                                <exclude reference="c4y-cK-SYg"/>
+                                <include reference="eqI-Q0-XUq"/>
+                                <exclude reference="hm3-kx-qgf"/>
+                                <exclude reference="lvP-ks-JCL"/>
+                                <exclude reference="mol-6q-wGf"/>
+                                <include reference="uKT-vq-Dwg"/>
+                                <include reference="w7f-DH-gdm"/>
+                                <include reference="wo7-xs-7Rb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="classicView" destination="Fqu-Cy-gxd" id="qIy-La-efz"/>
+                        <outlet property="multiplayerView" destination="7nn-Fg-FQx" id="Xim-yh-nZ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dV0-AZ-no3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-921.42857142857133" y="40.579710144927539"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="taceo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-4L-4n3">
-                                <rect key="frame" x="15" y="120" width="345" height="132.5"/>
+                                <rect key="frame" x="15" y="144" width="384" height="132.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="102"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap anywhere to begin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-z2-6sb">
-                                <rect key="frame" x="99.5" y="444" width="176" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="classic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-z2-6sb">
+                                <rect key="frame" x="174" y="290.5" width="66.5" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap anywhere to begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cA-Nk-0Lv">
+                                <rect key="frame" x="15" y="334.5" width="384" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe right to choose game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gW-EK-Tog">
+                                <rect key="frame" x="15" y="375.5" width="384" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,23 +238,39 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wTB-4L-4n3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="0P2-UM-9V8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7cL-z2-6sb" secondAttribute="bottom" constant="200" id="6la-JW-6DU"/>
+                            <constraint firstItem="7cL-z2-6sb" firstAttribute="bottom" secondItem="wTB-4L-4n3" secondAttribute="bottom" constant="40" id="6la-JW-6DU"/>
+                            <constraint firstItem="9gW-EK-Tog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7vl-gk-QIX"/>
+                            <constraint firstItem="9gW-EK-Tog" firstAttribute="top" secondItem="1cA-Nk-0Lv" secondAttribute="bottom" constant="18" id="9Cp-4J-g1J"/>
                             <constraint firstItem="7cL-z2-6sb" firstAttribute="centerX" secondItem="wTB-4L-4n3" secondAttribute="centerX" id="Qsa-FV-HnP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1cA-Nk-0Lv" secondAttribute="trailing" constant="15" id="g3F-Ov-XPl"/>
+                            <constraint firstItem="1cA-Nk-0Lv" firstAttribute="top" secondItem="7cL-z2-6sb" secondAttribute="bottom" constant="18" id="gaq-fo-fvs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wTB-4L-4n3" secondAttribute="trailing" constant="15" id="nYv-qo-f8b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9gW-EK-Tog" secondAttribute="trailing" constant="15" id="v3Z-Gi-jUS"/>
                             <constraint firstItem="wTB-4L-4n3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="xKi-Ek-sze"/>
+                            <constraint firstItem="1cA-Nk-0Lv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="zwy-x9-Pfo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="27n-1c-8uh" appends="YES" id="zs0-MJ-eUa"/>
+                            <outletCollection property="gestureRecognizers" destination="PwB-Ah-xAA" appends="YES" id="dJ4-Ir-jc8"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="gamemodeLabel" destination="7cL-z2-6sb" id="cIf-NZ-deE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="8Nf-Hr-fBk" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="27n-1c-8uh">
                     <connections>
-                        <segue destination="5y3-jN-TEY" kind="show" id="5bw-NS-zff"/>
+                        <segue destination="5y3-jN-TEY" kind="show" customClass="SegueFromRight" customModule="taceo" customModuleProvider="target" id="5bw-NS-zff"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="PwB-Ah-xAA">
+                    <connections>
+                        <segue destination="wzL-0k-WLs" kind="show" customClass="SegueFromLeft" customModule="taceo" customModuleProvider="target" id="zBH-s7-hMN"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
         <!--Game View Controller-->
@@ -59,13 +278,17 @@
             <objects>
                 <viewController id="5y3-jN-TEY" customClass="GameViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UjB-SM-unN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.097170498699999996" green="0.097170498699999996" blue="0.097170498699999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="h54-sp-hJs"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="WkT-ju-Bry" appends="YES" id="YGW-eO-1ip"/>
+                            <outletCollection property="gestureRecognizers" destination="Q2i-Ob-EYF" appends="YES" id="QLd-LA-Nq8"/>
+                            <outletCollection property="gestureRecognizers" destination="U7v-BN-nU3" appends="YES" id="Rlz-w2-qMA"/>
+                            <outletCollection property="gestureRecognizers" destination="vzu-zo-Ggx" appends="YES" id="V72-nr-col"/>
+                            <outletCollection property="gestureRecognizers" destination="nxZ-zm-HxH" appends="YES" id="jXO-iZ-nDK"/>
                         </connections>
                     </view>
                 </viewController>
@@ -75,6 +298,32 @@
                         <action selector="handleTapWithRecognizer:" destination="5y3-jN-TEY" id="jcT-fE-JpT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" allowableMovement="10" minimumPressDuration="0.5" id="Q2i-Ob-EYF">
+                    <connections>
+                        <action selector="handleLongPress:" destination="5y3-jN-TEY" id="mff-xW-z6W"/>
+                        <outlet property="delegate" destination="5y3-jN-TEY" id="Wrf-PK-vya"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="U7v-BN-nU3">
+                    <connections>
+                        <action selector="handleRightSwipe:" destination="5y3-jN-TEY" id="cEV-GC-6mE"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="vzu-zo-Ggx">
+                    <connections>
+                        <action selector="handleLeftSwipe:" destination="5y3-jN-TEY" id="RZ9-Xo-ljX"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="JnC-Fx-Fs5">
+                    <connections>
+                        <action selector="handleUpSwipe:" destination="5y3-jN-TEY" id="T3R-3d-2P9"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="nxZ-zm-HxH">
+                    <connections>
+                        <action selector="handleDownSwipe:" destination="5y3-jN-TEY" id="zEH-vt-fqA"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1519" y="27"/>
         </scene>
