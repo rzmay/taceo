@@ -11,13 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var gamemodeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var gamemode: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,18 +34,19 @@ class ViewController: UIViewController {
         case 0:
             gamemodeLabel.text = "classic"
             gamemodeLabel.textColor = TaceoColors.magenta
+
         case 1:
             gamemodeLabel.text = "multiplayer"
             gamemodeLabel.textColor = TaceoColors.gold
+            
         default:
             gamemodeLabel.text = "UNKNOWN GAMEMODE"
             assertionFailure("unknown gamemode")
         }
-        
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
-
+    
 }
 

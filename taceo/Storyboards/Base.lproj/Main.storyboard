@@ -145,20 +145,20 @@
                             <mask key="constraints">
                                 <exclude reference="4z7-lL-16N"/>
                                 <exclude reference="BwK-f9-32h"/>
+                                <exclude reference="ZUn-SP-36s"/>
+                                <exclude reference="eqI-Q0-XUq"/>
+                                <exclude reference="w7f-DH-gdm"/>
                                 <exclude reference="Cl9-Tc-WGS"/>
                                 <exclude reference="Y3Q-oT-gkS"/>
-                                <exclude reference="ZUn-SP-36s"/>
                                 <exclude reference="u0U-eb-3EO"/>
                                 <exclude reference="zTg-Na-RvX"/>
                                 <exclude reference="9B6-uC-K6u"/>
                                 <exclude reference="Hxb-cg-L8R"/>
                                 <exclude reference="SXd-PD-aj4"/>
                                 <exclude reference="c4y-cK-SYg"/>
-                                <exclude reference="eqI-Q0-XUq"/>
                                 <exclude reference="hm3-kx-qgf"/>
                                 <exclude reference="lvP-ks-JCL"/>
                                 <exclude reference="uKT-vq-Dwg"/>
-                                <exclude reference="w7f-DH-gdm"/>
                                 <exclude reference="wo7-xs-7Rb"/>
                             </mask>
                         </variation>
@@ -168,12 +168,14 @@
                                 <exclude reference="9mG-GI-Iju"/>
                                 <exclude reference="BwK-f9-32h"/>
                                 <exclude reference="VgO-1x-I9S"/>
+                                <include reference="ZUn-SP-36s"/>
+                                <include reference="eqI-Q0-XUq"/>
+                                <include reference="w7f-DH-gdm"/>
                                 <exclude reference="yKK-JN-hfY"/>
                                 <exclude reference="Cl9-Tc-WGS"/>
                                 <exclude reference="SMV-4x-8cF"/>
                                 <include reference="Y3Q-oT-gkS"/>
                                 <exclude reference="ZHd-X8-195"/>
-                                <include reference="ZUn-SP-36s"/>
                                 <exclude reference="u0U-eb-3EO"/>
                                 <include reference="zTg-Na-RvX"/>
                                 <exclude reference="2NV-tY-Xqw"/>
@@ -182,12 +184,10 @@
                                 <exclude reference="SXd-PD-aj4"/>
                                 <exclude reference="ar7-0w-J6T"/>
                                 <exclude reference="c4y-cK-SYg"/>
-                                <include reference="eqI-Q0-XUq"/>
                                 <exclude reference="hm3-kx-qgf"/>
                                 <exclude reference="lvP-ks-JCL"/>
                                 <exclude reference="mol-6q-wGf"/>
                                 <include reference="uKT-vq-Dwg"/>
-                                <include reference="w7f-DH-gdm"/>
                                 <include reference="wo7-xs-7Rb"/>
                             </mask>
                         </variation>
@@ -211,9 +211,22 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="taceo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-4L-4n3">
                                 <rect key="frame" x="15" y="144" width="384" height="132.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132.5" id="X5Q-Lt-Pi7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="102"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X5Q-Lt-Pi7"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="X5Q-Lt-Pi7"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="classic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-z2-6sb">
                                 <rect key="frame" x="174" y="290.5" width="66.5" height="26"/>
@@ -257,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="gamemodeLabel" destination="7cL-z2-6sb" id="cIf-NZ-deE"/>
+                        <outlet property="titleLabel" destination="wTB-4L-4n3" id="HnG-Th-JoQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -272,6 +286,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="666.66666666666674" y="20.758928571428569"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Z2d-i8-MdE">

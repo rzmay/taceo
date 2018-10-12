@@ -20,6 +20,7 @@
 		FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385901216F21EF00C7718D /* SegueFromLeft.swift */; };
 		FA385904216F233100C7718D /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385903216F233100C7718D /* SegueFromRight.swift */; };
 		FA385906216F257100C7718D /* UnwindSegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385905216F257100C7718D /* UnwindSegueFromRight.swift */; };
+		FA385908217007F100C7718D /* TaceoTapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385907217007F100C7718D /* TaceoTapType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FA385901216F21EF00C7718D /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		FA385903216F233100C7718D /* SegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		FA385905216F257100C7718D /* UnwindSegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindSegueFromRight.swift; sourceTree = "<group>"; };
+		FA385907217007F100C7718D /* TaceoTapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaceoTapType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */,
 				FA3858FA216ED89D00C7718D /* Constants.swift */,
 				FA3858FE216EFD5E00C7718D /* TaceoColors.swift */,
+				FA385907217007F100C7718D /* TaceoTapType.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				FA3858D921683B4800C7718D /* TaceoVibrationControl.swift in Sources */,
 				FA3858A421678FE300C7718D /* ViewController.swift in Sources */,
 				FA3858FF216EFD5E00C7718D /* TaceoColors.swift in Sources */,
+				FA385908217007F100C7718D /* TaceoTapType.swift in Sources */,
 				FA3858B62167981300C7718D /* GameViewController.swift in Sources */,
 				FA3858FD216ED93900C7718D /* GamemodeSelectionViewController.swift in Sources */,
 				FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */,
