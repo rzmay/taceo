@@ -22,15 +22,15 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("view will appear")
         super.viewWillAppear(animated)
         
-        if gamemode == nil {
-            gamemode = UserDefaults.standard.integer(forKey: Constants.UserDefaults.gamemode)
-        }
+        gamemode = UserDefaults.standard.integer(forKey: Constants.UserDefaults.gamemode)
+
+        guard let gm = gamemode else { return }
+        print("gamemode: \(gm)")
         
-        guard let gamemode = gamemode else { return }
-        
-        switch gamemode {
+        switch gm {
         case 0:
             gamemodeLabel.text = "classic"
             gamemodeLabel.textColor = TaceoColors.magenta
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+    @IBAction func unwindToTitle(_ segue: UIStoryboardSegue) {
     }
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {

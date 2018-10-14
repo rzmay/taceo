@@ -25,17 +25,15 @@ class GamemodeSelectionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier,
-            let destination = segue.destination as? ViewController else { return }
+        guard let identifier = segue.identifier else { return }
         switch identifier {
         case "classicChosen":
-            destination.gamemode = 0
+            
             UserDefaults.standard.set(0, forKey: Constants.UserDefaults.gamemode)
         case "multiplayerChosen":
-            destination.gamemode = 1
             UserDefaults.standard.set(1, forKey: Constants.UserDefaults.gamemode)
         default:
-            destination.gamemode = nil
+            assertionFailure("Unexpected segue: \(identifier)")
         }
     }
     

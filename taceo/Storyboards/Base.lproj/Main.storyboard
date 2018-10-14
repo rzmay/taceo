@@ -37,7 +37,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-x7-6xR">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="279"/>
                                         <connections>
-                                            <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="multiplayerChosen" customClass="UnwindSegueFromRight" customModule="taceo" customModuleProvider="target" unwindAction="unwindWithSegue:" id="ELG-UF-iAy"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" identifier="multiplayerChosen" customClass="UnwindFromRight" customModule="taceo" customModuleProvider="target" id="K0e-Ow-Fvc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,7 +77,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-p0-gLH">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="279"/>
                                         <connections>
-                                            <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="classicChosen" customClass="UnwindSegueFromRight" customModule="taceo" customModuleProvider="target" unwindAction="unwindWithSegue:" id="s4n-1V-FsA"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" identifier="classicChosen" customClass="UnwindFromRight" customModule="taceo" customModuleProvider="target" id="33r-2x-avN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -199,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dV0-AZ-no3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-921.42857142857133" y="40.579710144927539"/>
+            <point key="canvasLocation" x="-922" y="21"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -250,7 +250,9 @@
                         <color key="backgroundColor" red="0.097170498704663211" green="0.097170498704663211" blue="0.097170498704663211" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="wTB-4L-4n3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="0P2-UM-9V8"/>
+                            <constraint firstItem="wTB-4L-4n3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="0P2-UM-9V8">
+                                <variation key="heightClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstItem="7cL-z2-6sb" firstAttribute="bottom" secondItem="wTB-4L-4n3" secondAttribute="bottom" constant="40" id="6la-JW-6DU"/>
                             <constraint firstItem="9gW-EK-Tog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7vl-gk-QIX"/>
                             <constraint firstItem="9gW-EK-Tog" firstAttribute="top" secondItem="1cA-Nk-0Lv" secondAttribute="bottom" constant="18" id="9Cp-4J-g1J"/>
@@ -271,8 +273,8 @@
                     <connections>
                         <outlet property="gamemodeLabel" destination="7cL-z2-6sb" id="cIf-NZ-deE"/>
                         <outlet property="titleLabel" destination="wTB-4L-4n3" id="HnG-Th-JoQ"/>
-                        <segue destination="5y3-jN-TEY" kind="show" identifier="segueToClassic" customClass="SegueFromRight" customModule="taceo" customModuleProvider="target" id="lcU-tt-GLA"/>
-                        <segue destination="5Aj-IR-Wnv" kind="show" identifier="segueToMultiplayer" customClass="SegueFromRight" customModule="taceo" customModuleProvider="target" id="1Gx-Hq-UtT"/>
+                        <segue destination="5y3-jN-TEY" kind="show" identifier="segueToClassic" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="lcU-tt-GLA"/>
+                        <segue destination="5Aj-IR-Wnv" kind="show" identifier="segueToMultiplayer" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="1Gx-Hq-UtT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -284,7 +286,7 @@
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="PwB-Ah-xAA">
                     <connections>
-                        <segue destination="wzL-0k-WLs" kind="show" customClass="SegueFromLeft" customModule="taceo" customModuleProvider="target" id="zBH-s7-hMN"/>
+                        <segue destination="wzL-0k-WLs" kind="show" customClass="PushFromLeft" customModule="taceo" customModuleProvider="target" id="zBH-s7-hMN"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -344,7 +346,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKt-ih-RSz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKt-ih-RSz">
                                 <rect key="frame" x="0.0" y="423" width="414" height="60"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="46"/>
                                 <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -363,16 +365,15 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="WkT-ju-Bry" appends="YES" id="YGW-eO-1ip"/>
                             <outletCollection property="gestureRecognizers" destination="Q2i-Ob-EYF" appends="YES" id="QLd-LA-Nq8"/>
-                            <outletCollection property="gestureRecognizers" destination="U7v-BN-nU3" appends="YES" id="Rlz-w2-qMA"/>
-                            <outletCollection property="gestureRecognizers" destination="vzu-zo-Ggx" appends="YES" id="V72-nr-col"/>
-                            <outletCollection property="gestureRecognizers" destination="nxZ-zm-HxH" appends="YES" id="jXO-iZ-nDK"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="tapIndicationLabel" destination="pKt-ih-RSz" id="1Y8-90-dhR"/>
+                        <segue destination="fNj-zs-Sc5" kind="custom" identifier="gameOver" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="Ivx-AL-659"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiv-1L-4vA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="huu-vT-6lW" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="WkT-ju-Bry">
                     <connections>
                         <action selector="handleTapWithRecognizer:" destination="5y3-jN-TEY" id="YmM-Zv-Yho"/>
@@ -384,28 +385,91 @@
                         <outlet property="delegate" destination="5y3-jN-TEY" id="Wrf-PK-vya"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="U7v-BN-nU3">
-                    <connections>
-                        <action selector="handleRightSwipe:" destination="5y3-jN-TEY" id="cEV-GC-6mE"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="vzu-zo-Ggx">
-                    <connections>
-                        <action selector="handleLeftSwipe:" destination="5y3-jN-TEY" id="RZ9-Xo-ljX"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="JnC-Fx-Fs5">
-                    <connections>
-                        <action selector="handleUpSwipe:" destination="5y3-jN-TEY" id="T3R-3d-2P9"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="nxZ-zm-HxH">
-                    <connections>
-                        <action selector="handleDownSwipe:" destination="5y3-jN-TEY" id="zEH-vt-fqA"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1829" y="-383"/>
         </scene>
+        <!--Classic Game Over View Controller-->
+        <scene sceneID="qau-4M-qLo">
+            <objects>
+                <viewController id="fNj-zs-Sc5" customClass="ClassicGameOverViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dr3-pN-bkr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="game over" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvC-Jd-kh1">
+                                <rect key="frame" x="5" y="144" width="404" height="83.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="64"/>
+                                <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBr-4H-oed">
+                                <rect key="frame" x="5" y="242.5" width="414" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oda-Pg-sIL">
+                                <rect key="frame" x="15" y="270.5" width="384" height="133"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="102"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to try again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR0-g4-Xcg">
+                                <rect key="frame" x="0.0" y="418.5" width="414" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe right to exit to title screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV1-hd-aUD">
+                                <rect key="frame" x="0.0" y="471.5" width="414" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ZV1-hd-aUD" firstAttribute="leading" secondItem="Rnc-6h-CUO" secondAttribute="leading" id="0ML-wy-Fnc"/>
+                            <constraint firstAttribute="trailing" secondItem="wBr-4H-oed" secondAttribute="trailing" constant="-5" id="2BJ-PH-ok0"/>
+                            <constraint firstItem="PvC-Jd-kh1" firstAttribute="leading" secondItem="Rnc-6h-CUO" secondAttribute="leading" constant="5" id="5vQ-uB-mk0"/>
+                            <constraint firstItem="ZV1-hd-aUD" firstAttribute="top" secondItem="ZR0-g4-Xcg" secondAttribute="bottom" constant="30" id="65m-RP-HBZ"/>
+                            <constraint firstItem="Rnc-6h-CUO" firstAttribute="trailing" secondItem="oda-Pg-sIL" secondAttribute="trailing" constant="15" id="8Zi-xO-3C5"/>
+                            <constraint firstItem="ZV1-hd-aUD" firstAttribute="trailing" secondItem="Rnc-6h-CUO" secondAttribute="trailing" id="IiE-ws-JcS"/>
+                            <constraint firstItem="PvC-Jd-kh1" firstAttribute="top" secondItem="Rnc-6h-CUO" secondAttribute="top" constant="100" id="Jd5-7U-WfX">
+                                <variation key="heightClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="wBr-4H-oed" firstAttribute="leading" secondItem="Rnc-6h-CUO" secondAttribute="leading" constant="5" id="L5X-1U-XbJ"/>
+                            <constraint firstItem="oda-Pg-sIL" firstAttribute="leading" secondItem="Rnc-6h-CUO" secondAttribute="leading" constant="15" id="Nlo-VA-tpc"/>
+                            <constraint firstItem="wBr-4H-oed" firstAttribute="top" secondItem="PvC-Jd-kh1" secondAttribute="bottom" constant="15" id="aAS-VF-KDV"/>
+                            <constraint firstItem="oda-Pg-sIL" firstAttribute="top" secondItem="wBr-4H-oed" secondAttribute="bottom" constant="5" id="aDj-kZ-Jz0"/>
+                            <constraint firstItem="Rnc-6h-CUO" firstAttribute="trailing" secondItem="PvC-Jd-kh1" secondAttribute="trailing" constant="5" id="fsN-KR-k4V"/>
+                            <constraint firstItem="ZR0-g4-Xcg" firstAttribute="leading" secondItem="Dr3-pN-bkr" secondAttribute="leading" id="qFl-RK-P3s"/>
+                            <constraint firstItem="ZR0-g4-Xcg" firstAttribute="top" secondItem="oda-Pg-sIL" secondAttribute="bottom" constant="15" id="tDe-LL-wgE"/>
+                            <constraint firstItem="Rnc-6h-CUO" firstAttribute="trailing" secondItem="ZR0-g4-Xcg" secondAttribute="trailing" id="wOm-jw-JvI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rnc-6h-CUO"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KkM-p5-0v3" appends="YES" id="zeY-MK-srz"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="oda-Pg-sIL" id="FEO-lw-cDh"/>
+                        <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="classicToTitleScreen" customClass="DoubleUnwindFromLeft" customModule="taceo" customModuleProvider="target" unwindAction="unwindToTitle:" id="afp-w9-aZT"/>
+                        <segue destination="huu-vT-6lW" kind="unwind" identifier="playAgain" customClass="UnwindFromLeft" customModule="taceo" customModuleProvider="target" unwindAction="unwindToClassicGame:" id="7mS-G7-D2N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyP-8U-ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KkM-p5-0v3">
+                    <connections>
+                        <action selector="handleTap:" destination="fNj-zs-Sc5" id="R5l-ZK-BDu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3144.9275362318845" y="-383.03571428571428"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="K0e-Ow-Fvc"/>
+    </inferredMetricsTieBreakers>
 </document>

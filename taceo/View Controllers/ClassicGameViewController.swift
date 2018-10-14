@@ -19,13 +19,44 @@ class ClassicGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tapIndicationLabel.text = ""
+        
+        // Manually set up swipe actions;
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeUp.direction = .up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Reset for new game
+        
+        sequenceManager = TaceoSequenceManager.Classic()
+        recognizeLong = true
+        recievingInput = false
+        
         startReading()
     }
     
     func startReading() {
         recievingInput = false
         sequenceManager.add(tap: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
             self?.tapIndicationLabel.text = "✓ ✓ ✓"
             self?.tapIndicationLabel.textColor = TaceoColors.magenta
             guard let animate = self?.animate else {return}
@@ -47,6 +78,20 @@ class ClassicGameViewController: UIViewController {
                 } else {
                     tapIndicationLabel.text = "X"
                     recievingInput = false
+                    
+                    var repeats = 0
+                    weak var timer: Timer?
+                    timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
+                        
+                        repeats += 1
+                        if repeats > 3 {
+                            timer?.invalidate()
+                            self?.tapIndicationLabel.text = ""
+                            self?.performSegue(withIdentifier: "gameOver", sender: nil)
+                        } else {
+                            TaceoVibrationControl.error.vibrate()
+                        }
+                    }
                 }
             }
         }
@@ -63,7 +108,7 @@ class ClassicGameViewController: UIViewController {
         }
     }
     
-    func handleSwipe() {
+    @objc func handleSwipe() {
         print("swipe")
         followInput(for: .swipe)
     }
@@ -78,6 +123,19 @@ class ClassicGameViewController: UIViewController {
         recognizeLong = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else { return }
+        
+        if identifier == "gameOver" {
+            guard let destination = segue.destination as? ClassicGameOverViewController else { return }
+            destination.score = sequenceManager.sequence.count - 1
+        }
+    }
+    
+    @IBAction func unwindToClassicGame(_ segue: UIStoryboardSegue) {
+    }
+    
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         print("tap")
         followInput(for: .short)
@@ -89,22 +147,6 @@ class ClassicGameViewController: UIViewController {
             print("long press")
             recognizeLong = false
         }
-    }
-    
-    @IBAction func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
-        handleSwipe()
-    }
-    
-    @IBAction func handleLeftSwipe(_ sender: UISwipeGestureRecognizer) {
-        handleSwipe()
-    }
-    
-    @IBAction func handleUpSwipe(_ sender: UISwipeGestureRecognizer) {
-        handleSwipe()
-    }
-    
-    @IBAction func handleDownSwipe(_ sender: UISwipeGestureRecognizer) {
-        handleSwipe()
     }
     
 }
