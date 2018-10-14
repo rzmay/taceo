@@ -67,4 +67,21 @@ enum TaceoVibrationControl {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
+    
+    func tap() -> TaceoTapType? {
+        
+        switch self {
+        case .heavy:
+            return TaceoTapType.short
+            
+        case .warning:
+            return TaceoTapType.swipe
+            
+        case .nope:
+            return TaceoTapType.long
+            
+        default:
+            return nil
+        }
+    }
 }

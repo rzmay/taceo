@@ -48,5 +48,16 @@ class ViewController: UIViewController {
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
     
+    @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
+        switch gamemode {
+        case 0:
+            performSegue(withIdentifier: "segueToClassic", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "segueToMultiplayer", sender: nil)
+        default:
+            print("Unexpected gamemode: \(String(describing: gamemode))")
+        }
+    }
+    
 }
 

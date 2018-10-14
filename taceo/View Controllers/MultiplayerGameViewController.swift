@@ -1,23 +1,21 @@
 //
-//  GameViewController.swift
+//  MultiplayerGameViewController.swift
 //  taceo
 //
-//  Created by Robert May on 10/5/18.
+//  Created by Robert May on 10/12/18.
 //  Copyright © 2018 Robert May. All rights reserved.
 //
 
 import UIKit
-import AVFoundation
 
-class GameViewController: UIViewController {
+class MultiplayerGameViewController: UIViewController {
     
-    var audioSession = AVAudioSession()
     var recognizeLong = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
     }
     
     func handleSwipe() {
