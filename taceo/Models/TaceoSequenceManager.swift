@@ -39,23 +39,30 @@ class TaceoSequenceManager {
             }
             readSequence.append(.error)
             timer?.invalidate()
-            var i = 0
+            // i is not the index of the read sequence, but the element number
+            var i = 1
             timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true) { [weak self] _ in
-                readSequence[i].vibrate()
                 
-                if let tap = readSequence[i].tap() {
-                    animation(tap)
+                if i >= readSequence.count {
+                    self?.timer?.invalidate()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        readSequence[readSequence.count - 1].vibrate()
+                        
+                        completion()
+                    }
+                } else {
+                    if let tap = readSequence[i-1].tap() {
+                        animation(tap)
+                    }
+                    readSequence[i-1].vibrate()
                 }
                 
                 i += 1
-                if i >= readSequence.count {
-                    self?.timer?.invalidate()
-                    completion()
-                }
             }
         }
         
         func input(tap: TaceoTapType) -> Bool? {
+            tap.vibration().vibrate()
             if sequence[index] == tap {
                 index += 1
                 if index >= sequence.count {

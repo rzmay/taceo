@@ -11,7 +11,7 @@ module.exports = class {
 	}
 
 	begin(players) {
-
+		this.add()
 	}
 
 	input(tap, player) {

@@ -57,11 +57,12 @@ class ClassicGameViewController: UIViewController {
         recievingInput = false
         sequenceManager.add(tap: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            self?.tapIndicationLabel.text = "✓ ✓ ✓"
+            guard let count = self?.sequenceManager.sequence.count else {return}
+            self?.tapIndicationLabel.text = count > 1 ? "correct" : "game start!"
             self?.tapIndicationLabel.textColor = TaceoColors.magenta
             guard let animate = self?.animate else {return}
             self?.sequenceManager.read(animation: animate) { [weak self] in
-                self?.tapIndicationLabel.text = "✓"
+                self?.tapIndicationLabel.text = "your turn"
                 self?.tapIndicationLabel.textColor = TaceoColors.gold
                 self?.recievingInput = true
             }
@@ -100,11 +101,11 @@ class ClassicGameViewController: UIViewController {
     func animate(_ tap: TaceoTapType) {
         switch tap {
         case .short:
-            tapIndicationLabel.text = "O"
+            tapIndicationLabel.text = "tap"
         case .long:
-            tapIndicationLabel.text = "O O O"
+            tapIndicationLabel.text = "hold"
         case .swipe:
-            tapIndicationLabel.text = "O O"
+            tapIndicationLabel.text = "swipe"
         }
     }
     
