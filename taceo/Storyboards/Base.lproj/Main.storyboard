@@ -210,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="taceo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-4L-4n3">
-                                <rect key="frame" x="0.0" y="144" width="399" height="132.5"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="132.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132.5" id="X5Q-Lt-Pi7"/>
                                 </constraints>
@@ -229,7 +229,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="classic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-z2-6sb">
-                                <rect key="frame" x="166.5" y="294.5" width="66.5" height="26"/>
+                                <rect key="frame" x="174" y="294.5" width="66.5" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                             <constraint firstItem="1cA-Nk-0Lv" firstAttribute="top" secondItem="7cL-z2-6sb" secondAttribute="bottom" constant="60" id="gaq-fo-fvs"/>
                             <constraint firstItem="hNJ-uq-sXy" firstAttribute="centerX" secondItem="5J2-Cd-VoV" secondAttribute="centerX" id="jRI-vf-d8f"/>
                             <constraint firstItem="5J2-Cd-VoV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kDZ-4P-eIG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wTB-4L-4n3" secondAttribute="trailing" constant="15" id="nYv-qo-f8b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wTB-4L-4n3" secondAttribute="trailing" id="nYv-qo-f8b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9gW-EK-Tog" secondAttribute="trailing" constant="15" id="v3Z-Gi-jUS"/>
                             <constraint firstItem="hNJ-uq-sXy" firstAttribute="centerY" secondItem="9gW-EK-Tog" secondAttribute="centerY" id="wdY-ra-R0f"/>
                             <constraint firstItem="wTB-4L-4n3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xKi-Ek-sze"/>

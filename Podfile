@@ -6,6 +6,5 @@ target 'taceo' do
   use_frameworks!
 
   # Pods for taceo
-  pod 'Starscream'
 
 end

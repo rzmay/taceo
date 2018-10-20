@@ -189,7 +189,6 @@
 				FA38589A21678FE300C7718D /* Sources */,
 				FA38589B21678FE300C7718D /* Frameworks */,
 				FA38589C21678FE300C7718D /* Resources */,
-				19A403AFF18A8ED20CFC1EAF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,24 +246,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19A403AFF18A8ED20CFC1EAF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-taceo/Pods-taceo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taceo/Pods-taceo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FE20E1FEAA65CFEB7E6649D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
