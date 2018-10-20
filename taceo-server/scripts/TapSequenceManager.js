@@ -1,9 +1,9 @@
 module.exports = class {
 
-	constructor() {
+	constructor(game) {
 		this.index = 0;
 		this.sequence = [];
-		this.turn = 0
+		this.turn = 1;
 	}
 
 	add(tap) {
@@ -11,11 +11,18 @@ module.exports = class {
 	}
 
 	begin(players) {
-		this.add()
+		for (var i = 1; i < players.length; i++) {
+			players[i].emit("gameStart", {
+				turn: this.turn,
+			})
+		}
 	}
 
-	input(tap, player) {
-		
+	input(player, tap) {
+		if (tap === this.sequence[this.index]) {
+			this.index++;
+
+		}
 	}
 
-}
+};

@@ -16,8 +16,7 @@ class GamemodeSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        classicView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        setShadow()
         classicView.layer.shadowOpacity = 0.2
         classicView.layer.shadowColor = UIColor.black.cgColor
         classicView.layer.shadowRadius = 5
@@ -35,6 +34,20 @@ class GamemodeSelectionViewController: UIViewController {
         default:
             assertionFailure("Unexpected segue: \(identifier)")
         }
+    }
+    
+    func setShadow() {
+        if UIDevice.current.orientation.isLandscape {
+            classicView.layer.shadowOffset = CGSize(width: 5, height: 0)
+        } else {
+            print("Portrait")
+            classicView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        setShadow()
     }
     
 }

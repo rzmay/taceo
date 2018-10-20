@@ -11,8 +11,10 @@ import UIKit
 class ClassicGameOverViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
     var score: Int?
+    var newHighScore: Bool = false
     var scoreRead = false
     var setScore = false
     weak var timer: Timer?
@@ -23,9 +25,12 @@ class ClassicGameOverViewController: UIViewController {
         guard let score = score else { return }
         
         var currentLabel = 0
+        let oldHighScore = Int(CoreDataHelper.retrieveHighScore()?.score ?? 0)
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
+            
+            // Update score label
             currentLabel += 1
             if currentLabel > score {
                 self?.timer?.invalidate()
@@ -34,12 +39,25 @@ class ClassicGameOverViewController: UIViewController {
             } else {
                 self?.scoreLabel.text = String(currentLabel)
                 TaceoVibrationControl.heavy.vibrate()
+                
+                // Update high score label
+                if currentLabel > oldHighScore {
+                    self?.highScoreLabel.text = String(currentLabel)
+                }
             }
+            
         }
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
+        
+        if let highScore = CoreDataHelper.retrieveHighScore() {
+            highScoreLabel.text = "\(highScore.score)"
+        }
+        
+        newHighScore = CoreDataHelper.HighScoreEditor.checkHighScore(with: score)
+        
     }
     
     func trySegue(withIdentifier identifier: String) {

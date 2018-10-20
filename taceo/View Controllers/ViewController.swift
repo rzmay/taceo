@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gamemodeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
     var gamemode: Int?
 
@@ -34,10 +35,19 @@ class ViewController: UIViewController {
         case 0:
             gamemodeLabel.text = "classic"
             gamemodeLabel.textColor = TaceoColors.magenta
+            
+            highScoreLabel.textColor = TaceoColors.magenta
+            
+            let highScore = Int( CoreDataHelper.retrieveHighScore()?.score ?? 0 )
+            highScoreLabel.text = String(highScore)
 
         case 1:
             gamemodeLabel.text = "multiplayer"
             gamemodeLabel.textColor = TaceoColors.gold
+            
+            highScoreLabel.textColor = TaceoColors.gold
+            
+            highScoreLabel.text = "None"
             
         default:
             gamemodeLabel.text = "UNKNOWN GAMEMODE"

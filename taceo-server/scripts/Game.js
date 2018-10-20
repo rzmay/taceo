@@ -22,9 +22,13 @@ class Game {
 			this.players.push(player);
 			if (this.players.length === 2) {
 				this.sequenceManager.begin(this.players);
+				player.emit("joinSuccess", {
+					name: this.name,
+					playerNumber: this.players.length
+				})
 			}
 		} else {
-			player.emit("failure", {
+			player.emit("joinFailure", {
 				pass: (pass === this.pass),
 				full: this.players.length > 2
 			})
