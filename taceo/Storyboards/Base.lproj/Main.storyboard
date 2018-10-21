@@ -574,16 +574,16 @@
                                 <exclude reference="gAg-2C-fXv"/>
                                 <exclude reference="Iyn-gC-BzQ"/>
                                 <exclude reference="x0q-TF-b34"/>
-                                <exclude reference="gSu-L3-5aO"/>
-                                <exclude reference="pqS-5p-rLS"/>
-                                <exclude reference="UfM-jH-AhZ"/>
-                                <exclude reference="mBS-VF-5QX"/>
-                                <exclude reference="tre-Aq-5Yv"/>
                                 <exclude reference="Kb9-su-uOT"/>
                                 <exclude reference="RGx-4J-cbc"/>
                                 <exclude reference="t8X-ZD-fu2"/>
                                 <exclude reference="3RB-HM-xqY"/>
                                 <exclude reference="gto-Ce-HrN"/>
+                                <exclude reference="gSu-L3-5aO"/>
+                                <exclude reference="pqS-5p-rLS"/>
+                                <exclude reference="UfM-jH-AhZ"/>
+                                <exclude reference="mBS-VF-5QX"/>
+                                <exclude reference="tre-Aq-5Yv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -604,6 +604,15 @@
                                 <exclude reference="Nlo-VA-tpc"/>
                                 <exclude reference="aDj-kZ-Jz0"/>
                                 <include reference="x0q-TF-b34"/>
+                                <exclude reference="Ae2-5S-PaC"/>
+                                <include reference="Kb9-su-uOT"/>
+                                <include reference="RGx-4J-cbc"/>
+                                <exclude reference="ZxH-za-6iI"/>
+                                <include reference="t8X-ZD-fu2"/>
+                                <include reference="3RB-HM-xqY"/>
+                                <exclude reference="ZBA-pH-GZN"/>
+                                <exclude reference="bPv-Lu-6iQ"/>
+                                <include reference="gto-Ce-HrN"/>
                                 <include reference="gSu-L3-5aO"/>
                                 <include reference="pqS-5p-rLS"/>
                                 <exclude reference="qFl-RK-P3s"/>
@@ -614,15 +623,6 @@
                                 <include reference="UfM-jH-AhZ"/>
                                 <include reference="mBS-VF-5QX"/>
                                 <include reference="tre-Aq-5Yv"/>
-                                <exclude reference="Ae2-5S-PaC"/>
-                                <include reference="Kb9-su-uOT"/>
-                                <include reference="RGx-4J-cbc"/>
-                                <exclude reference="ZxH-za-6iI"/>
-                                <include reference="t8X-ZD-fu2"/>
-                                <include reference="3RB-HM-xqY"/>
-                                <exclude reference="ZBA-pH-GZN"/>
-                                <exclude reference="bPv-Lu-6iQ"/>
-                                <include reference="gto-Ce-HrN"/>
                             </mask>
                         </variation>
                         <connections>
@@ -634,16 +634,51 @@
                         <outlet property="scoreLabel" destination="oda-Pg-sIL" id="FEO-lw-cDh"/>
                         <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="classicToTitleScreen" customClass="DoubleUnwindFromLeft" customModule="taceo" customModuleProvider="target" unwindAction="unwindToTitle:" id="afp-w9-aZT"/>
                         <segue destination="huu-vT-6lW" kind="unwind" identifier="playAgain" customClass="UnwindFromLeft" customModule="taceo" customModuleProvider="target" unwindAction="unwindToClassicGame:" id="7mS-G7-D2N"/>
+                        <segue destination="td0-A8-gn8" kind="custom" identifier="classicToSequenceScreen" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="FzT-me-KTA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyP-8U-ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="P0m-Ml-U8k" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="KkM-p5-0v3">
                     <connections>
                         <action selector="handleTap:" destination="fNj-zs-Sc5" id="R5l-ZK-BDu"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3144.6428571428569" y="-384.05797101449281"/>
+            <point key="canvasLocation" x="2728" y="-384"/>
+        </scene>
+        <!--Classic Sequence View Controller-->
+        <scene sceneID="QiL-n7-HAU">
+            <objects>
+                <viewController id="td0-A8-gn8" customClass="ClassicSequenceViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wlA-kU-dIb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oML-Pz-ifs">
+                                <rect key="frame" x="0.0" y="448" width="414" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="46"/>
+                                <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oML-Pz-ifs" firstAttribute="leading" secondItem="LUN-NC-d1O" secondAttribute="leading" id="I6w-Rq-a0W"/>
+                            <constraint firstItem="oML-Pz-ifs" firstAttribute="centerX" secondItem="wlA-kU-dIb" secondAttribute="centerX" id="QUR-jC-UzK"/>
+                            <constraint firstItem="LUN-NC-d1O" firstAttribute="trailing" secondItem="oML-Pz-ifs" secondAttribute="trailing" id="ZNs-Ob-u2H"/>
+                            <constraint firstItem="oML-Pz-ifs" firstAttribute="centerY" secondItem="wlA-kU-dIb" secondAttribute="centerY" id="w77-ld-REb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LUN-NC-d1O"/>
+                    </view>
+                    <connections>
+                        <outlet property="tapIndicationLabel" destination="oML-Pz-ifs" id="SX1-l5-yxk"/>
+                        <segue destination="P0m-Ml-U8k" kind="unwind" identifier="SequenceToGameOver" unwindAction="unwindToGameOver:" id="wUZ-eZ-HpK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8LS-Zd-cZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3590" y="-383"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

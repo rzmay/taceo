@@ -14,6 +14,7 @@ class ClassicGameOverViewController: UIViewController {
     @IBOutlet weak var highScoreLabel: UILabel!
     
     var score: Int?
+    var sequence: [TaceoTapType]?
     var newHighScore: Bool = false
     var scoreRead = false
     var setScore = false
@@ -52,11 +53,17 @@ class ClassicGameOverViewController: UIViewController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
         
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
         if let highScore = CoreDataHelper.retrieveHighScore() {
             highScoreLabel.text = "\(highScore.score)"
         }
         
-        newHighScore = CoreDataHelper.HighScoreEditor.checkHighScore(with: score)
+        guard let seq = sequence else {return}
+        
+        newHighScore = CoreDataHelper.HighScoreEditor.checkHighScore(with: score, sequence: seq)
         
     }
     
@@ -85,6 +92,37 @@ class ClassicGameOverViewController: UIViewController {
     
     @objc func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
         trySegue(withIdentifier: "classicToTitleScreen")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else { return }
+        
+        if identifier == "gameOver" {
+            
+            guard let hc = CoreDataHelper.retrieveHighScore() else { return }
+            let sequenceString = hc.sequence
+            let sequence = sequenceString?.split(separator: ":").map({ (tapType) -> TaceoTapType in  switch tapType {
+            case "TaceoTapType.short":
+                return TaceoTapType.short
+            case "TaceoTapType.long":
+                return TaceoTapType.long
+            case "TaceoTapType.swipe":
+                return TaceoTapType.swipe
+            default:
+                fatalError()
+                }})
+            guard let destination = segue.destination as? ClassicGameOverViewController else { return }
+            destination.sequence = sequence
+        }
+    }
+    
+    @objc func handleLeftSwipe(_ sender: UISwipeGestureRecognizer) {
+        trySegue(withIdentifier: "classicToSequenceScreen")
+    }
+    
+    @IBAction func unwindToGameOver(_ segue: UIStoryboardSegue) {
+        
     }
     
     deinit {

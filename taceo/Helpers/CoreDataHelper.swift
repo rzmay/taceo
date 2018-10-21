@@ -61,26 +61,28 @@ struct CoreDataHelper {
     
     struct HighScoreEditor {
         
-        static func checkHighScore(with score: Int) -> Bool {
+        static func checkHighScore(with score: Int, sequence: [TaceoTapType]) -> Bool {
             
             let high = CoreDataHelper.retrieveHighScore()
+            
             guard let hc = high else {
-                saveNew(score: Int64(score))
+                saveNew(score: Int64(score), sequence: sequence)
                 return true
             }
             let newHc = Int64(score)
             
             if hc.score < newHc {
                 CoreDataHelper.delete(hc: hc)
-                saveNew(score: newHc)
+                saveNew(score: newHc, sequence: sequence)
                 return true
             }
             return false
         }
         
-        static func saveNew(score: Int64) {
+        static func saveNew(score: Int64, sequence: [TaceoTapType]) {
             let highScore = CoreDataHelper.newHighScore()
             highScore.score = score
+            highScore.sequence = sequence.map({"\($0)"}).joined(separator: ";")
             CoreDataHelper.saveScore()
         }
         

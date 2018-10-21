@@ -103,7 +103,7 @@ class ClassicGameViewController: UIViewController {
         case .short:
             tapIndicationLabel.text = "tap"
         case .long:
-            tapIndicationLabel.text = "hold"
+            tapIndicationLabel.text = "Long Press"
         case .swipe:
             tapIndicationLabel.text = "swipe"
         }
@@ -131,6 +131,7 @@ class ClassicGameViewController: UIViewController {
         if identifier == "gameOver" {
             guard let destination = segue.destination as? ClassicGameOverViewController else { return }
             destination.score = sequenceManager.sequence.count - 1
+            destination.sequence = sequenceManager.sequence
         }
     }
     
