@@ -103,7 +103,7 @@ class ClassicGameViewController: UIViewController {
         case .short:
             tapIndicationLabel.text = "tap"
         case .long:
-            tapIndicationLabel.text = "Long Press"
+            tapIndicationLabel.text = "long press"
         case .swipe:
             tapIndicationLabel.text = "swipe"
         }

@@ -98,21 +98,24 @@ class ClassicGameOverViewController: UIViewController {
         
         guard let identifier = segue.identifier else { return }
         
-        if identifier == "gameOver" {
+        if identifier == "classicToSequenceScreen" {
             
             guard let hc = CoreDataHelper.retrieveHighScore() else { return }
             let sequenceString = hc.sequence
-            let sequence = sequenceString?.split(separator: ":").map({ (tapType) -> TaceoTapType in  switch tapType {
-            case "TaceoTapType.short":
-                return TaceoTapType.short
-            case "TaceoTapType.long":
-                return TaceoTapType.long
-            case "TaceoTapType.swipe":
-                return TaceoTapType.swipe
-            default:
-                fatalError()
-                }})
-            guard let destination = segue.destination as? ClassicGameOverViewController else { return }
+            let sequence = sequenceString?.split(separator: ";").map({ (tapType) -> TaceoTapType in
+                
+                switch tapType {
+                case "short":
+                    return TaceoTapType.short
+                case "long":
+                    return TaceoTapType.long
+                case "swipe":
+                    return TaceoTapType.swipe
+                default:
+                    fatalError()
+                }
+            })
+            guard let destination = segue.destination as? ClassicSequenceViewController else { return }
             destination.sequence = sequence
         }
     }

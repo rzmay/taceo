@@ -14,6 +14,8 @@ class ClassicSequenceViewController: UIViewController {
     var sequence: [TaceoTapType]?
     
     @IBOutlet weak var tapIndicationLabel: UILabel!
+    @IBOutlet weak var frameInsideView: UIView!
+    @IBOutlet weak var frameView: UIView!
     
     var sequenceManager = TaceoSequenceManager.Classic()
     var recognizeLong = true
@@ -24,6 +26,8 @@ class ClassicSequenceViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tapIndicationLabel.text = ""
+        frameInsideView.layer.cornerRadius = 20
+        frameView.layer.cornerRadius = 20
         
         // Manually set up swipe actions;
         
@@ -61,8 +65,7 @@ class ClassicSequenceViewController: UIViewController {
     func startReading() {
         recievingInput = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            guard let count = self?.sequenceManager.sequence.count else {return}
-            self?.tapIndicationLabel.text = count > 1 ? "correct" : "game start!"
+            self?.tapIndicationLabel.text = "replay start!"
             self?.tapIndicationLabel.textColor = TaceoColors.magenta
             guard let animate = self?.animate else {return}
             self?.sequenceManager.read(animation: animate) { [weak self] in
@@ -82,20 +85,20 @@ class ClassicSequenceViewController: UIViewController {
                     tapIndicationLabel.text = "correct"
                 } else {
                     tapIndicationLabel.text = "X"
-                    recievingInput = false
+                }
+                recievingInput = false
+                
+                var repeats = 0
+                weak var timer: Timer?
+                timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
                     
-                    var repeats = 0
-                    weak var timer: Timer?
-                    timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
-                        
-                        repeats += 1
-                        if repeats > 3 {
-                            timer?.invalidate()
-                            self?.tapIndicationLabel.text = ""
-                            self?.performSegue(withIdentifier: "SequenceToGameOver", sender: nil)
-                        } else {
-                            TaceoVibrationControl.error.vibrate()
-                        }
+                    repeats += 1
+                    if repeats > 3 {
+                        timer?.invalidate()
+                        self?.tapIndicationLabel.text = ""
+                        self?.performSegue(withIdentifier: "sequenceToGameOver", sender: nil)
+                    } else {
+                        TaceoVibrationControl.error.vibrate()
                     }
                 }
             }
@@ -107,7 +110,7 @@ class ClassicSequenceViewController: UIViewController {
         case .short:
             tapIndicationLabel.text = "tap"
         case .long:
-            tapIndicationLabel.text = "Long Press"
+            tapIndicationLabel.text = "long press"
         case .swipe:
             tapIndicationLabel.text = "swipe"
         }
@@ -139,8 +142,6 @@ class ClassicSequenceViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToClassicGame(_ segue: UIStoryboardSegue) {
-    }
     
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         print("tap")
