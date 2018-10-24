@@ -7,14 +7,41 @@
 //
 
 import UIKit
+import SocketIO
 
 class MultiplayerGameViewController: UIViewController {
     
     var recognizeLong = true
+    var privacyStatus: (priv: Bool, pass: String)?
+    var nickname: String?
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+    var socket: SocketIOClient! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        setUpSocket()
+        
+    }
+    
+    func setUpSocket() {
+        
+        socket = manager.defaultSocket
+        
+        socket.on(clientEvent: .connect) { [weak self] data, ack in
+            guard let name = self?.nickname,
+                let privacy = self?.privacyStatus
+                else { return }
+            let emitData: [String: Any] = [
+                "name": name,
+                "private": privacy.priv,
+                "password": privacy.pass
+            ]
+            self?.socket.emit("game", emitData)
+        }
+        
+        socket.connect()
         
     }
     

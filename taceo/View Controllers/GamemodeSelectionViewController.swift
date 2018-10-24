@@ -40,7 +40,6 @@ class GamemodeSelectionViewController: UIViewController {
         if UIDevice.current.orientation.isLandscape {
             classicView.layer.shadowOffset = CGSize(width: 5, height: 0)
         } else {
-            print("Portrait")
             classicView.layer.shadowOffset = CGSize(width: 0, height: 5)
         }
     }

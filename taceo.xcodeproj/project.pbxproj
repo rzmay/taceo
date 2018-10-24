@@ -11,6 +11,7 @@
 		934465759FFE9B4932EBBB21 /* Pods_taceo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6DEE2242A2ECDF9ADB0277 /* Pods_taceo.framework */; };
 		FA2F23DA21791318005EF526 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F23D921791318005EF526 /* CoreDataHelper.swift */; };
 		FA2F23DD21791354005EF526 /* Taceo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA2F23DB21791354005EF526 /* Taceo.xcdatamodeld */; };
+		FA2F23E1217E25FF005EF526 /* MultiplayerGameCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F23E0217E25FF005EF526 /* MultiplayerGameCreationViewController.swift */; };
 		FA3858A221678FE300C7718D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858A121678FE300C7718D /* AppDelegate.swift */; };
 		FA3858A421678FE300C7718D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3858A321678FE300C7718D /* ViewController.swift */; };
 		FA3858A721678FE400C7718D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3858A521678FE400C7718D /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		7D6DEE2242A2ECDF9ADB0277 /* Pods_taceo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taceo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2F23D921791318005EF526 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		FA2F23DC21791354005EF526 /* Taceo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taceo.xcdatamodel; sourceTree = "<group>"; };
+		FA2F23E0217E25FF005EF526 /* MultiplayerGameCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameCreationViewController.swift; sourceTree = "<group>"; };
 		FA38589E21678FE300C7718D /* taceo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taceo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3858A121678FE300C7718D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3858A321678FE300C7718D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				FA3859132171276600C7718D /* MultiplayerGameViewController.swift */,
 				FA3859152172E34200C7718D /* ClassicGameOverViewController.swift */,
 				2811D2D6217BEC6500B49AD0 /* ClassicSequenceViewController.swift */,
+				FA2F23E0217E25FF005EF526 /* MultiplayerGameCreationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				FA38589A21678FE300C7718D /* Sources */,
 				FA38589B21678FE300C7718D /* Frameworks */,
 				FA38589C21678FE300C7718D /* Resources */,
+				8335618E6C70F99EFCCEF9F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,6 +253,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8335618E6C70F99EFCCEF9F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-taceo/Pods-taceo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taceo/Pods-taceo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FE20E1FEAA65CFEB7E6649D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +308,7 @@
 				FA385908217007F100C7718D /* TaceoTapType.swift in Sources */,
 				FA3858B62167981300C7718D /* ClassicGameViewController.swift in Sources */,
 				FA3859162172E34200C7718D /* ClassicGameOverViewController.swift in Sources */,
+				FA2F23E1217E25FF005EF526 /* MultiplayerGameCreationViewController.swift in Sources */,
 				FA3858FD216ED93900C7718D /* GamemodeSelectionViewController.swift in Sources */,
 				FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */,
 				FA38590D2170F92300C7718D /* TaceoSequenceManager.swift in Sources */,

@@ -6,7 +6,6 @@ var logger = require('morgan');
 var socket_io = require('socket.io');
 
 var app = express();
-
 var io = socket_io();
 app.io = io;
 

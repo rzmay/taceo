@@ -12,6 +12,7 @@ struct Constants {
     
     struct UserDefaults {
         static var gamemode = "gamemode"
+        static var nickname = "nickname"
     }
     
 }
