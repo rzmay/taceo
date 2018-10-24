@@ -258,6 +258,13 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="swipe down for the tutorial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9B-5w-4gr">
+                                <rect key="frame" x="15" y="473" width="384" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.097170498704663211" green="0.097170498704663211" blue="0.097170498704663211" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
@@ -479,7 +486,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="game over" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvC-Jd-kh1">
                                 <rect key="frame" x="5" y="74" width="404" height="83.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="64"/>
-                                <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="1" green="0.23921568627450979" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBr-4H-oed">
@@ -715,7 +722,67 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3590" y="-383"/>
+            <point key="canvasLocation" x="3638" y="-383"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="a6R-a4-dkk">
+            <objects>
+                <viewController id="px1-Zp-kTP" customClass="tutorialViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WEe-mC-DTv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpA-GT-ZiW">
+                                <rect key="frame" x="15" y="15" width="384" height="866"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLr-Sc-ykk">
+                                        <rect key="frame" x="0.0" y="403" width="384" height="60"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="46"/>
+                                        <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="WLr-Sc-ykk" firstAttribute="centerY" secondItem="OpA-GT-ZiW" secondAttribute="centerY" id="GnJ-Uc-FOk"/>
+                                    <constraint firstItem="WLr-Sc-ykk" firstAttribute="leading" secondItem="OpA-GT-ZiW" secondAttribute="leading" id="sFa-SB-DzJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLr-Sc-ykk" secondAttribute="trailing" id="wV3-PH-M2s"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.23921568627450979" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="OpA-GT-ZiW" firstAttribute="top" secondItem="WEe-mC-DTv" secondAttribute="top" constant="15" id="3ec-7o-SBD"/>
+                            <constraint firstItem="OpA-GT-ZiW" firstAttribute="leading" secondItem="Ceo-A3-iBD" secondAttribute="leading" constant="15" id="VDW-jp-gFS"/>
+                            <constraint firstAttribute="bottom" secondItem="OpA-GT-ZiW" secondAttribute="bottom" constant="15" id="gnJ-Wq-RBu"/>
+                            <constraint firstItem="Ceo-A3-iBD" firstAttribute="trailing" secondItem="OpA-GT-ZiW" secondAttribute="trailing" constant="15" id="uoj-4V-UQ8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ceo-A3-iBD"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xuj-2f-NdX" appends="YES" id="Xsl-vW-m8L"/>
+                            <outletCollection property="gestureRecognizers" destination="Qew-yU-BSC" appends="YES" id="8yO-fE-KoT"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="frameInsideView" destination="OpA-GT-ZiW" id="7Q7-uq-ybJ"/>
+                        <outlet property="frameView" destination="WEe-mC-DTv" id="fEF-mw-120"/>
+                        <outlet property="tapIndicationLabel" destination="WLr-Sc-ykk" id="doy-vX-AOg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jEg-sX-oje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="xuj-2f-NdX">
+                    <connections>
+                        <action selector="handleLongPress:" destination="px1-Zp-kTP" id="CqK-xU-JU0"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="Qew-yU-BSC">
+                    <connections>
+                        <action selector="handleTapWithRecognizer:" destination="px1-Zp-kTP" id="yUx-do-pvc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="665" y="-813"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
