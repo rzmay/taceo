@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2811D2D7217BEC6500B49AD0 /* ClassicSequenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2811D2D6217BEC6500B49AD0 /* ClassicSequenceViewController.swift */; };
+		2811D2D921800AF100B49AD0 /* tutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2811D2D821800AF100B49AD0 /* tutorialViewController.swift */; };
 		934465759FFE9B4932EBBB21 /* Pods_taceo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6DEE2242A2ECDF9ADB0277 /* Pods_taceo.framework */; };
 		FA2F23DA21791318005EF526 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F23D921791318005EF526 /* CoreDataHelper.swift */; };
 		FA2F23DD21791354005EF526 /* Taceo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA2F23DB21791354005EF526 /* Taceo.xcdatamodeld */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		06D761C8CE1BB42440F1A004 /* Pods-taceo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taceo.release.xcconfig"; path = "Pods/Target Support Files/Pods-taceo/Pods-taceo.release.xcconfig"; sourceTree = "<group>"; };
 		2811D2D6217BEC6500B49AD0 /* ClassicSequenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicSequenceViewController.swift; sourceTree = "<group>"; };
+		2811D2D821800AF100B49AD0 /* tutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorialViewController.swift; sourceTree = "<group>"; };
 		427BA51F21C40ECF812D3D9D /* Pods-taceo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taceo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taceo/Pods-taceo.debug.xcconfig"; sourceTree = "<group>"; };
 		7D6DEE2242A2ECDF9ADB0277 /* Pods_taceo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taceo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2F23D921791318005EF526 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			files = (
 				FA2F23DA21791318005EF526 /* CoreDataHelper.swift in Sources */,
 				FA3858FB216ED89D00C7718D /* Constants.swift in Sources */,
+				2811D2D921800AF100B49AD0 /* tutorialViewController.swift in Sources */,
 				FA385910217101A400C7718D /* TapSequenceManager.swift in Sources */,
 				FA3858D921683B4800C7718D /* TaceoVibrationControl.swift in Sources */,
 				FA3858A421678FE300C7718D /* ViewController.swift in Sources */,
