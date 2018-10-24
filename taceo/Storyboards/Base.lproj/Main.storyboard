@@ -548,13 +548,13 @@
                                         <exclude reference="SJE-1r-hmY"/>
                                         <exclude reference="ZYH-Fn-qVD"/>
                                         <exclude reference="fni-0Q-9gM"/>
+                                        <exclude reference="C9z-qo-jg7"/>
                                         <exclude reference="KdC-zw-0aU"/>
                                         <exclude reference="Rru-Di-R6P"/>
                                         <exclude reference="tek-XO-fby"/>
                                         <exclude reference="L2a-gG-sA4"/>
                                         <exclude reference="O8G-L0-WQ9"/>
                                         <exclude reference="qw5-QT-p7l"/>
-                                        <exclude reference="C9z-qo-jg7"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -579,6 +579,9 @@
                                         <exclude reference="ZYH-Fn-qVD"/>
                                         <include reference="fni-0Q-9gM"/>
                                         <exclude reference="qj5-p0-5kc"/>
+                                        <exclude reference="7YP-AX-GV3"/>
+                                        <include reference="C9z-qo-jg7"/>
+                                        <exclude reference="jmU-9T-W1g"/>
                                         <exclude reference="KdC-zw-0aU"/>
                                         <include reference="Rru-Di-R6P"/>
                                         <exclude reference="eYB-OX-cS0"/>
@@ -589,9 +592,6 @@
                                         <include reference="L2a-gG-sA4"/>
                                         <include reference="O8G-L0-WQ9"/>
                                         <exclude reference="qw5-QT-p7l"/>
-                                        <exclude reference="7YP-AX-GV3"/>
-                                        <include reference="C9z-qo-jg7"/>
-                                        <exclude reference="jmU-9T-W1g"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -1037,7 +1037,7 @@
         <!--Tutorial View Controller-->
         <scene sceneID="a6R-a4-dkk">
             <objects>
-                <viewController id="px1-Zp-kTP" customClass="tutorialViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="px1-Zp-kTP" customClass="TutorialViewController" customModule="taceo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WEe-mC-DTv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1069,26 +1069,22 @@
                             <constraint firstItem="Ceo-A3-iBD" firstAttribute="trailing" secondItem="OpA-GT-ZiW" secondAttribute="trailing" constant="15" id="uoj-4V-UQ8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ceo-A3-iBD"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="xuj-2f-NdX" appends="YES" id="Xsl-vW-m8L"/>
-                            <outletCollection property="gestureRecognizers" destination="Qew-yU-BSC" appends="YES" id="8yO-fE-KoT"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="frameInsideView" destination="OpA-GT-ZiW" id="7Q7-uq-ybJ"/>
-                        <outlet property="frameView" destination="WEe-mC-DTv" id="fEF-mw-120"/>
-                        <outlet property="tapIndicationLabel" destination="WLr-Sc-ykk" id="doy-vX-AOg"/>
+                        <outlet property="frameInsideView" destination="OpA-GT-ZiW" id="5qN-Yt-R3P"/>
+                        <outlet property="frameView" destination="WEe-mC-DTv" id="rBk-6q-OA4"/>
+                        <outlet property="tapIndicationLabel" destination="WLr-Sc-ykk" id="t65-Jx-GlC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEg-sX-oje" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="xuj-2f-NdX">
                     <connections>
-                        <action selector="handleLongPress:" destination="px1-Zp-kTP" id="CqK-xU-JU0"/>
+                        <action selector="handleLongPress:" destination="px1-Zp-kTP" id="dPB-bF-GtR"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="Qew-yU-BSC">
                     <connections>
-                        <action selector="handleTapWithRecognizer:" destination="px1-Zp-kTP" id="yUx-do-pvc"/>
+                        <action selector="handleTapWithRecognizer:" destination="px1-Zp-kTP" id="s4F-0g-FNc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -5,11 +5,10 @@
 //  Created by Lucas Kiewek on 10/23/18.
 //  Copyright © 2018 Lucas Kiewek. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
-class tutorialViewController: UIViewController {
+class TutorialViewController: UIViewController {
     
     var sequence: [TaceoTapType]?
     
@@ -17,7 +16,7 @@ class tutorialViewController: UIViewController {
     @IBOutlet weak var frameInsideView: UIView!
     @IBOutlet weak var tapIndicationLabel: UILabel!
     
-
+    
     var sequenceManager = TaceoSequenceManager.Classic()
     var recognizeLong = true
     var recievingInput = false
