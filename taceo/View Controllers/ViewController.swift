@@ -53,6 +53,22 @@ class ViewController: UIViewController {
             gamemodeLabel.text = "UNKNOWN GAMEMODE"
             assertionFailure("unknown gamemode")
         }
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleDownSwipe))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func handleRightSwipe() {
+        performSegue(withIdentifier: "toGamemodeSelection", sender: nil)
+    }
+    
+    @objc func handleDownSwipe() {
+        performSegue(withIdentifier: "toTutorial", sender: nil)
     }
     
     @IBAction func unwindToTitle(_ segue: UIStoryboardSegue) {

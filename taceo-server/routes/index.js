@@ -9,13 +9,22 @@ router.get('/', function(req, res, next) {
 module.exports = function (io) {
 	io.on('connection', function (socket) {
 		console.log(socket.id + " connected.");
+
     socket.on('game', function (data) {
     	if (data.private === true) {
-    		console.log(data.name + " (" + socket.id + ") created a private game with password " + data.password)
+    		console.log(data.name + " (" + socket.id + ") created a private game with password " + data.password);
+
+				socket.nickname = data.name;
 			} else {
-    		console.log(data.name + " (" + socket.id + ") created a random game")
+    		console.log(data.name + " (" + socket.id + ") created a random game");
+
+				socket.nickname = data.name;
 			}
-		})
+		});
+
+    socket.on('disconnect', function () {
+			console.log(socket.nickname + " (" + socket.id + ") disconnected")
+		});
 	});
 
 	return router;

@@ -16,6 +16,7 @@ class MultiplayerGameViewController: UIViewController {
     var nickname: String?
     let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     var socket: SocketIOClient! = nil
+    var gameId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class MultiplayerGameViewController: UIViewController {
     
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         print("tap")
+        socket.emit("tap")
     }
     
     @IBAction func handleLongPress(_ sender: UILongPressGestureRecognizer) {

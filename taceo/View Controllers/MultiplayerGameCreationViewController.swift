@@ -22,10 +22,19 @@ class MultiplayerGameCreationViewController: UIViewController {
     var passwordIsSet: Bool = false
     var nickname: String = ""
     var password: String = ""
+    var alreadySwiped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
         
         setShadow()
         mainView.layer.shadowOpacity = 0.2
@@ -83,13 +92,16 @@ class MultiplayerGameCreationViewController: UIViewController {
         
     }
     
-    @IBAction func handleSwipeLeft(_ sender: UISwipeGestureRecognizer) {
-        if nicknameIsSet {
+    @objc func handleLeftSwipe(_ sender: UISwipeGestureRecognizer) {
+        // alreadySwiped keeps track of swiping to avoid double socket
+        if nicknameIsSet && !alreadySwiped {
             performSegue(withIdentifier: "toMultiplayerGame", sender: nil)
+            alreadySwiped = true
         }
     }
     
-    @IBAction func handleLeftSwipe(_ sender: UISwipeGestureRecognizer) {
+    @objc func handleRightSwipe(_ sender: UISwipeGestureRecognizer) {
+        print("swipe right")
         performSegue(withIdentifier: "cancelGameCreation", sender: nil)
     }
     

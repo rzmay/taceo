@@ -353,7 +353,6 @@
                         </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="27n-1c-8uh" appends="YES" id="zs0-MJ-eUa"/>
-                            <outletCollection property="gestureRecognizers" destination="PwB-Ah-xAA" appends="YES" id="dJ4-Ir-jc8"/>
                         </connections>
                     </view>
                     <connections>
@@ -362,6 +361,8 @@
                         <outlet property="titleLabel" destination="wTB-4L-4n3" id="HnG-Th-JoQ"/>
                         <segue destination="5y3-jN-TEY" kind="show" identifier="segueToClassic" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="lcU-tt-GLA"/>
                         <segue destination="PjC-Fb-Pp7" kind="custom" identifier="segueToMultiplayer" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="N0q-w6-6Jj"/>
+                        <segue destination="px1-Zp-kTP" kind="show" identifier="toTutorial" customClass="PushFromTop" customModule="taceo" customModuleProvider="target" id="aIU-Fz-cCx"/>
+                        <segue destination="wzL-0k-WLs" kind="custom" identifier="toGamemodeSelection" customClass="PushFromLeft" customModule="taceo" customModuleProvider="target" id="e7u-2c-vbP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -371,11 +372,6 @@
                         <action selector="handleTap:" destination="BYZ-38-t0r" id="sOe-9a-rap"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="PwB-Ah-xAA">
-                    <connections>
-                        <segue destination="wzL-0k-WLs" kind="show" customClass="PushFromLeft" customModule="taceo" customModuleProvider="target" id="zBH-s7-hMN"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="665.625" y="20.289855072463769"/>
         </scene>
@@ -594,9 +590,6 @@
                                         <exclude reference="qw5-QT-p7l"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Tj0-io-upG" appends="YES" id="DV6-77-oyM"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -672,20 +665,10 @@
                         <outlet property="privacyLabel" destination="BYE-ZO-tnP" id="gg4-Wa-A4f"/>
                         <outlet property="swipeRightLabel" destination="L7K-cB-TNq" id="Zpb-eJ-Ush"/>
                         <segue destination="5Aj-IR-Wnv" kind="custom" identifier="toMultiplayerGame" customClass="PushFromRight" customModule="taceo" customModuleProvider="target" id="aNK-2L-uza"/>
-                        <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="cancelGameCreation" unwindAction="unwindToTitle:" id="2uL-9f-t0o"/>
+                        <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="cancelGameCreation" customClass="UnwindFromLeft" customModule="taceo" customModuleProvider="target" unwindAction="unwindToTitle:" id="2uL-9f-t0o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTt-LT-KYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="Tj0-io-upG">
-                    <connections>
-                        <action selector="handleSwipeLeft:" destination="PjC-Fb-Pp7" id="fSk-Iv-a0w"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="P8v-8t-hxv">
-                    <connections>
-                        <action selector="handleLeftSwipe:" destination="PjC-Fb-Pp7" id="0yD-u3-AcX"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1828.7946428571427" y="510.14492753623193"/>
         </scene>
@@ -1074,6 +1057,7 @@
                         <outlet property="frameInsideView" destination="OpA-GT-ZiW" id="5qN-Yt-R3P"/>
                         <outlet property="frameView" destination="WEe-mC-DTv" id="rBk-6q-OA4"/>
                         <outlet property="tapIndicationLabel" destination="WLr-Sc-ykk" id="t65-Jx-GlC"/>
+                        <segue destination="8Nf-Hr-fBk" kind="unwind" identifier="tutorialOver" customClass="UnwindFromBottom" customModule="taceo" customModuleProvider="target" unwindAction="unwindToTitle:" id="OIw-9o-Rag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEg-sX-oje" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -30,6 +30,8 @@
 		FA385910217101A400C7718D /* TapSequenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38590F217101A400C7718D /* TapSequenceManager.swift */; };
 		FA3859142171276600C7718D /* MultiplayerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3859132171276600C7718D /* MultiplayerGameViewController.swift */; };
 		FA3859162172E34200C7718D /* ClassicGameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3859152172E34200C7718D /* ClassicGameOverViewController.swift */; };
+		FA5E445C21821D7000371BA4 /* SegueFromTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E445B21821D7000371BA4 /* SegueFromTop.swift */; };
+		FA5E445E21821E0F00371BA4 /* SegueFromBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E445D21821E0F00371BA4 /* SegueFromBottom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		FA38590F217101A400C7718D /* TapSequenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapSequenceManager.swift; sourceTree = "<group>"; };
 		FA3859132171276600C7718D /* MultiplayerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameViewController.swift; sourceTree = "<group>"; };
 		FA3859152172E34200C7718D /* ClassicGameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicGameOverViewController.swift; sourceTree = "<group>"; };
+		FA5E445B21821D7000371BA4 /* SegueFromTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromTop.swift; sourceTree = "<group>"; };
+		FA5E445D21821E0F00371BA4 /* SegueFromBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromBottom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 				FA385901216F21EF00C7718D /* SegueFromLeft.swift */,
 				FA385903216F233100C7718D /* SegueFromRight.swift */,
 				FA38590C2170F92300C7718D /* TaceoSequenceManager.swift */,
+				FA5E445B21821D7000371BA4 /* SegueFromTop.swift */,
+				FA5E445D21821E0F00371BA4 /* SegueFromBottom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,9 +326,11 @@
 				FA2F23DD21791354005EF526 /* Taceo.xcdatamodeld in Sources */,
 				FA385908217007F100C7718D /* TaceoTapType.swift in Sources */,
 				FA2F1E502180418400E72A9B /* TutorialViewController.swift in Sources */,
+				FA5E445C21821D7000371BA4 /* SegueFromTop.swift in Sources */,
 				FA3858B62167981300C7718D /* ClassicGameViewController.swift in Sources */,
 				FA3859162172E34200C7718D /* ClassicGameOverViewController.swift in Sources */,
 				FA2F23E1217E25FF005EF526 /* MultiplayerGameCreationViewController.swift in Sources */,
+				FA5E445E21821E0F00371BA4 /* SegueFromBottom.swift in Sources */,
 				FA3858FD216ED93900C7718D /* GamemodeSelectionViewController.swift in Sources */,
 				FA385902216F21EF00C7718D /* SegueFromLeft.swift in Sources */,
 				FA38590D2170F92300C7718D /* TaceoSequenceManager.swift in Sources */,
