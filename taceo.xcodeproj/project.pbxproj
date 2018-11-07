@@ -32,6 +32,7 @@
 		FA3859162172E34200C7718D /* ClassicGameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3859152172E34200C7718D /* ClassicGameOverViewController.swift */; };
 		FA5E445C21821D7000371BA4 /* SegueFromTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E445B21821D7000371BA4 /* SegueFromTop.swift */; };
 		FA5E445E21821E0F00371BA4 /* SegueFromBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E445D21821E0F00371BA4 /* SegueFromBottom.swift */; };
+		FA5E446221855E2500371BA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5E446121855E2500371BA4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		FA3859152172E34200C7718D /* ClassicGameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicGameOverViewController.swift; sourceTree = "<group>"; };
 		FA5E445B21821D7000371BA4 /* SegueFromTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromTop.swift; sourceTree = "<group>"; };
 		FA5E445D21821E0F00371BA4 /* SegueFromBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromBottom.swift; sourceTree = "<group>"; };
+		FA5E446121855E2500371BA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				FA3858A121678FE300C7718D /* AppDelegate.swift */,
 				FA3858A821678FE600C7718D /* Assets.xcassets */,
 				FA3858AD21678FE600C7718D /* Info.plist */,
+				FA5E446121855E2500371BA4 /* GoogleService-Info.plist */,
 				FA2F23DB21791354005EF526 /* Taceo.xcdatamodeld */,
 			);
 			path = taceo;
@@ -167,8 +170,8 @@
 		FA3858D7216839C300C7718D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */,
 				FA3858FA216ED89D00C7718D /* Constants.swift */,
+				FA3858D821683B4700C7718D /* TaceoVibrationControl.swift */,
 				FA3858FE216EFD5E00C7718D /* TaceoColors.swift */,
 				FA385907217007F100C7718D /* TaceoTapType.swift */,
 			);
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3858AC21678FE600C7718D /* LaunchScreen.storyboard in Resources */,
+				FA5E446221855E2500371BA4 /* GoogleService-Info.plist in Resources */,
 				FA3858A921678FE600C7718D /* Assets.xcassets in Resources */,
 				FA3858A721678FE400C7718D /* Main.storyboard in Resources */,
 			);
@@ -279,13 +283,29 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-taceo/Pods-taceo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -492,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robertmay.taceo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.psyfy.taceo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robertmay.taceo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.psyfy.taceo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

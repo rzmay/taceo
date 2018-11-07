@@ -1,6 +1,0 @@
-framework module Pods_taceo {
-  umbrella header "Pods-taceo-umbrella.h"
-
-  export *
-  module * { export * }
-}

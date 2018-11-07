@@ -6,6 +6,7 @@ target 'taceo' do
   use_frameworks!
 
   # Pods for taceo
-  pod 'Socket.IO-Client-Swift', '~> 13.3.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end
