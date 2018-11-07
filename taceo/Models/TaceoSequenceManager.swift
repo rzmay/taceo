@@ -121,6 +121,9 @@ class TaceoSequenceManager {
 
         func input(tap: TaceoTapType) -> Bool? {
             // Check your taps with the sequence in the database and write new tap when ready
+            
+            // Placeholder
+            return true
         }
 
     }
