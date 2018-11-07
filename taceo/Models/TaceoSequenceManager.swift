@@ -89,7 +89,7 @@ class TaceoSequenceManager {
         var sequence = [TaceoTapType]()
         var index = 0
         var gameId = ""
-        var lastData: [String: Any] = new [String: Any]()
+        var lastData: [String: Any] = [String: Any]()
         
         init () {
             // nothing has to happen here
