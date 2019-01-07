@@ -15,6 +15,7 @@ class MultiplayerGameCreationViewController: UIViewController {
     
     @IBOutlet weak var swipeRightLabel: UILabel!
     @IBOutlet weak var privacyLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
     
     @IBOutlet weak var mainView: UIView!
     
@@ -22,6 +23,7 @@ class MultiplayerGameCreationViewController: UIViewController {
     var passwordIsSet: Bool = false
     var nickname: String = ""
     var password: String = ""
+    var errorMessage: String = ""
     var alreadySwiped = false
     
     override func viewDidLoad() {
@@ -53,6 +55,13 @@ class MultiplayerGameCreationViewController: UIViewController {
         nicknameTextFieldDidChange(nicknameTextField)
         passwordTextFieldDidChange(gamePasswordTextField)
         
+        setupKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if errorMessage != "" { passwordLabel.text = errorMessage }
     }
     
     func setShadow() {
@@ -119,6 +128,8 @@ class MultiplayerGameCreationViewController: UIViewController {
         
     }
     
+    @IBAction func unwindToMultiplayerGameCreation(_ segue: UIStoryboardSegue) {
+    }
     
     func checkNotEmpty(for string: String) -> Bool {
         let numSpaces = string.components(separatedBy:" ").count - 1

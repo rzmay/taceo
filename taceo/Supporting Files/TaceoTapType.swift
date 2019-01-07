@@ -21,4 +21,15 @@ enum TaceoTapType {
             return TaceoVibrationControl.warning
         }
     }
+    
+    func toString() -> String {
+        switch self {
+        case .short:
+            return "short"
+        case .long:
+            return "long"
+        case .swipe:
+            return "swipe"
+        }
+    }
 }
