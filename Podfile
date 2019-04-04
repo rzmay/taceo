@@ -6,7 +6,5 @@ target 'taceo' do
   use_frameworks!
 
   # Pods for taceo
-  pod 'Firebase/Core'
-  pod 'Firebase/Firestore'
 
 end

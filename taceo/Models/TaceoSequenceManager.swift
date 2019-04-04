@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 
 class TaceoSequenceManager {
     
@@ -82,50 +81,6 @@ class TaceoSequenceManager {
         }
     }
     
-    class Multiplayer: TapSequenceManager {
-        
-        let db = Firestore.firestore()
-        let myTurn = true
-        var sequence = [TaceoTapType]()
-        var index = 0
-        var gameId = ""
-        var lastData: [String: Any] = [String: Any]()
-        
-        init () {
-            // nothing has to happen here
-        }
-        
-        func read(animation: @escaping (TaceoTapType) -> Void, completion: @escaping () -> Void) {
-            // This will set up the listeners for the other player's taps when it is their turn
-            db.collection("public-games").document(gameId).addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-                guard let data = document.data() else {
-                    print("Document data was empty.")
-                    return
-                }
-                print("Current data: \(data)")
-                // set turn
-                
-            }
-        }
-
-
-        func add(tap: TaceoTapType?) {
-            sequence.append(tap ?? TaceoSequenceManager.tapTypes[Int.random(in: 0..<TaceoSequenceManager.tapTypes.count)])
-            // Listen for a change to the sequence in the database and change sequence
-            
-        }
-
-        func input(tap: TaceoTapType) -> Bool? {
-            // Check your taps with the sequence in the database and write new tap when ready
-            
-            // Placeholder
-            return true
-        }
-
-    }
+    // Removed multiplayer
     
 }
