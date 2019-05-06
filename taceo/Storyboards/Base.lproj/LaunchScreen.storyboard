@@ -18,16 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PsyfyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-dT-HiP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PsyfyLogoMagentaGold" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-dT-HiP">
+                                <rect key="frame" x="143.5" y="552" width="90" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="DUl-wh-ZSQ"/>
+                                    <constraint firstAttribute="height" constant="95" id="xSu-EC-xO2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TaceoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-cB-nm5">
+                                <rect key="frame" x="0.0" y="148.5" width="375" height="370"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="370" id="Nc1-4X-gYZ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cX6-dT-HiP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F2A-E9-nNi"/>
-                            <constraint firstItem="cX6-dT-HiP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ZaI-6N-4vd"/>
-                            <constraint firstItem="cX6-dT-HiP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cIB-iG-V4m"/>
-                            <constraint firstItem="cX6-dT-HiP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oBD-XI-33f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cX6-dT-HiP" secondAttribute="bottom" constant="20" id="Hxb-W6-O3F"/>
+                            <constraint firstItem="cX6-dT-HiP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="1" id="MUq-SM-lHE"/>
+                            <constraint firstItem="8eI-cB-nm5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Thu-CS-MIS"/>
+                            <constraint firstItem="8eI-cB-nm5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XSt-Jv-Zyd"/>
+                            <constraint firstItem="8eI-cB-nm5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gBd-qM-6rY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PsyfyLogo" width="600" height="750"/>
+        <image name="PsyfyLogoMagentaGold" width="600" height="750"/>
+        <image name="TaceoLogo" width="1024" height="1024"/>
     </resources>
 </document>
