@@ -11,6 +11,7 @@ import UIKit
 class TutorialViewController: UIViewController {
     
     var sequence: [TaceoTapType]?
+    var tutorialManager: TutorialManager?
     
     @IBOutlet var frameView: UIView!
     @IBOutlet weak var frameInsideView: UIView!
@@ -51,69 +52,29 @@ class TutorialViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Reset for new game
+        beginTutorial()
         
-        sequenceManager = TaceoSequenceManager.Classic()
-        guard let managerSequence = sequence else { return }
-        sequenceManager.sequence = managerSequence
-        recognizeLong = true
-        recievingInput = false
-        
-        startReading()
-    }
-    
-    func startReading() {
-        recievingInput = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            self?.tapIndicationLabel.text = "replay start!"
-            self?.tapIndicationLabel.textColor = TaceoColors.magenta
-            guard let animate = self?.animate else {return}
-            self?.sequenceManager.read(animation: animate) { [weak self] in
-                self?.tapIndicationLabel.text = "your turn"
-                self?.tapIndicationLabel.textColor = TaceoColors.gold
-                self?.recievingInput = true
-            }
-        })
     }
     
     func followInput(for tap: TaceoTapType) {
-        if recievingInput {
-            animate(tap)
-            let won = sequenceManager.input(tap: tap)
-            if let response = won {
-                if response {
-                    tapIndicationLabel.text = "correct"
-                } else {
-                    tapIndicationLabel.text = "X"
-                }
-                recievingInput = false
-                
-                var repeats = 0
-                weak var timer: Timer?
-                timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
-                    
-                    repeats += 1
-                    if repeats > 3 {
-                        timer?.invalidate()
-                        self?.tapIndicationLabel.text = ""
-                        self?.performSegue(withIdentifier: "sequenceToGameOver", sender: nil)
-                    } else {
-                        TaceoVibrationControl.error.vibrate()
-                    }
-                }
-            }
+        if !recievingInput {return}
+        if tap == .long {
+            homeSegue()
+        }
+        if tap == .swipe {
+            tutorialManager?.onSectionEnd()
         }
     }
     
-    func animate(_ tap: TaceoTapType) {
-        switch tap {
-        case .short:
-            tapIndicationLabel.text = "tap"
-        case .long:
-            tapIndicationLabel.text = "long press"
-        case .swipe:
-            tapIndicationLabel.text = "swipe"
+    func beginTutorial() {
+        tutorialManager = TutorialManager(startAt: 0) { [weak self] in
+            self?.homeSegue()
         }
+        tutorialManager?.playSection(0)
+    }
+    
+    func homeSegue() {
+        performSegue(withIdentifier: "tutorialOver", sender: self)
     }
     
     @objc func handleSwipe() {
@@ -130,24 +91,12 @@ class TutorialViewController: UIViewController {
         print("touches ended")
         recognizeLong = true
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let identifier = segue.identifier else { return }
-        
-        if identifier == "gameOver" {
-            guard let destination = segue.destination as? ClassicGameOverViewController else { return }
-            destination.score = sequenceManager.sequence.count - 1
-            destination.sequence = sequenceManager.sequence
-        }
-    }
-    
-    
+
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         print("tap")
         followInput(for: .short)
     }
-    
+
     @IBAction func handleLongPress(_ sender: UILongPressGestureRecognizer) {
         if recognizeLong {
             followInput(for: .long)
@@ -155,5 +104,16 @@ class TutorialViewController: UIViewController {
             recognizeLong = false
         }
     }
-    
 }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        guard let identifier = segue.identifier else { return }
+//
+//        if identifier == "gameOver" {
+//            guard let destination = segue.destination as? ClassicGameOverViewController else { return }
+//            destination.score = sequenceManager.sequence.count - 1
+//            destination.sequence = sequenceManager.sequence
+//        }
+//    }
+
