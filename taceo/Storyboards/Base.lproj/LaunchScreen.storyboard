@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,14 +31,34 @@
                                     <constraint firstAttribute="height" constant="370" id="Nc1-4X-gYZ"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lucas Kiewek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-CB-cVS">
+                                <rect key="frame" x="233.5" y="552" width="141.5" height="57"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.87066760620000005" blue="0.081968285350000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robert May" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUe-sY-0Q1">
+                                <rect key="frame" x="0.0" y="590" width="143.5" height="57"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.24099152879999999" blue="0.68505053429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gVc-CB-cVS" firstAttribute="height" secondItem="dUe-sY-0Q1" secondAttribute="height" id="22x-yg-FtT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gVc-CB-cVS" secondAttribute="trailing" id="HYG-Wz-T2I"/>
+                            <constraint firstItem="dUe-sY-0Q1" firstAttribute="height" secondItem="cX6-dT-HiP" secondAttribute="height" multiplier="3:5" id="Hhm-FK-Bt6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cX6-dT-HiP" secondAttribute="bottom" constant="20" id="Hxb-W6-O3F"/>
+                            <constraint firstItem="cX6-dT-HiP" firstAttribute="leading" secondItem="dUe-sY-0Q1" secondAttribute="trailing" id="IA4-ZZ-z2E"/>
                             <constraint firstItem="cX6-dT-HiP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="1" id="MUq-SM-lHE"/>
+                            <constraint firstItem="gVc-CB-cVS" firstAttribute="top" secondItem="cX6-dT-HiP" secondAttribute="top" id="Ne0-vq-r08"/>
                             <constraint firstItem="8eI-cB-nm5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Thu-CS-MIS"/>
                             <constraint firstItem="8eI-cB-nm5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XSt-Jv-Zyd"/>
                             <constraint firstItem="8eI-cB-nm5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gBd-qM-6rY"/>
+                            <constraint firstItem="gVc-CB-cVS" firstAttribute="leading" secondItem="cX6-dT-HiP" secondAttribute="trailing" id="kSv-E6-821"/>
+                            <constraint firstItem="dUe-sY-0Q1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nKG-cb-jBe"/>
+                            <constraint firstItem="dUe-sY-0Q1" firstAttribute="bottom" secondItem="cX6-dT-HiP" secondAttribute="bottom" id="vJJ-yG-Zmh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,7 +69,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PsyfyLogoMagentaGold" width="600" height="750"/>
+        <image name="PsyfyLogoMagentaGold" width="800" height="1000"/>
         <image name="TaceoLogo" width="1024" height="1024"/>
     </resources>
 </document>
