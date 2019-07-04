@@ -63,7 +63,8 @@ class ViewController: UIViewController {
     }
     
     @objc func handleDownSwipe() {
-        performSegue(withIdentifier: "toTutorial", sender: nil)
+        // Nonexistent
+        // performSegue(withIdentifier: "toTutorial", sender: nil)
     }
     
     @IBAction func unwindToTitle(_ segue: UIStoryboardSegue) {
