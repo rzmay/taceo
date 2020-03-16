@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcf9d8dab9cf439c98352a631220686, type: 3}
+  m_Name: Taceo.palette
+  m_EditorClassIdentifier: 
+  name: Taceo
+  colors:
+  - name: magenta
+    role: 0
+    color: {r: 0.8627451, g: 0.23529412, b: 0.74509805, a: 1}
+  - name: white
+    role: 1
+    color: {r: 0.8901961, g: 0.89411765, b: 0.85882354, a: 1}
+  - name: gold
+    role: 2
+    color: {r: 1, g: 0.87058824, b: 0.27450982, a: 1}
+  - name: black
+    role: 3
+    color: {r: 0.15294118, g: 0.12156863, b: 0.1882353, a: 1}
+  - name: gray
+    role: 4
+    color: {r: 0.41960785, g: 0.44313726, b: 0.49411765, a: 1}
