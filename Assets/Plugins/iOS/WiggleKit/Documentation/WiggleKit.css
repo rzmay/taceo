@@ -1,0 +1,57 @@
+body {
+	padding: 25px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+	background: #fffdfd;
+}
+
+a {
+	color: #001474;
+}
+
+kbd {
+	background: lightgray;
+	color: firebrick;
+
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+ul {
+	padding-left: 30px;
+
+	border-left: darkgray 2px solid;
+	border-radius: 4px;
+}
+
+.indent {
+	padding-left: 40px;
+
+	border-left: firebrick 2px solid;
+}
+
+.static {
+	padding: 10px;
+
+	background: #ededff;
+
+	border-radius: 4px;
+}
+
+.instance {
+	padding: 10px;
+
+	background: #edffed;
+
+	border-radius: 4px;
+}
+
+.type {
+	display: inline;
+
+	color: Background;
+}
+
+.support {
+	background: lightgray;
+}

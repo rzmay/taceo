@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wiggle Kit Documentation</title>
+
+	<link rel="stylesheet" href="WiggleKit.css">
+</head>
+<body>
+<h1><strong>Wiggle Kit Documentation</strong></h1>
+	<h4>By Robert May</h4>
+	<br>
+	<p>
+		In iOS 13, Apple introduced the <kbd>CoreHaptics</kbd> module into Swift and Objective-C native code
+		for iOS devices. The <kbd>CoreHaptics</kbd> allows users to customize haptics in their applications
+		by defining different haptic events and curves to control the intensity and sharpness of the vibration.
+		Unity currently has no interface with the haptic engine, and vibrations for mobile devices are extremely
+		limited. The Wiggle Kit plugin allows developers to access the haptic engine of iOS devices through C#
+		scripts, adding depth to mobile apps built with Unity through custom vibrations.
+	</p>
+	<strong>
+		As the <kbd>CoreHaptics</kbd> module is only available on iOS devices, the vibrations can only be played
+		from an iOS device after your unity project is build for iOS. Any attempt to play a vibration in the Unity
+		editor or on a simulated device will fail. Furthermore, as the <kbd>CoreHaptics</kbd> module is only available
+		in iOS 13+, any attempt to play a vibration on a device running an earlier version of iOS will result in
+		the default iOS vibration being played.
+	</strong>
+	<br>
+	<hr><hr>
+	<br>
+	<div>
+		<h2><kbd><strong>WiggleKit</strong></kbd></h2>
+		<p>The Wiggle Kit plugin adds the <kbd><strong>WiggleKit</strong></kbd> class to your project. The <kbd><strong>WiggleKit</strong></kbd> is used to access the haptic engine of the iOS device.</p>
+		<div class="indent">
+			<h3><strong>Static Properties</strong></h3>
+			<div class="indent static">
+				<h4><kbd><p class="type">WiggleKit</p> <strong>WiggleKit.Instance</strong></kbd></h4>
+				<p>A shared instance of the <kbd><strong>WiggleKit</strong></kbd> class.</p>
+				<ul>
+					<li>
+						<p>There should only be one instance of the <kbd><strong>WiggleKit</strong></kbd> class at all times.</p>
+					</li>
+					<li>
+						<p>The WiggleKit automatically instantiates <kbd><strong>WiggleKit.Instance</strong></kbd>.</p>
+					</li>
+					<li>
+						<p>Any attempts to instantiate a <kbd><strong>WiggleKit</strong></kbd> object other than <kbd><strong>WiggleKit.Instance</strong></kbd> will fail.</p>
+					</li>
+				</ul>
+			</div>
+			<br>
+			<h3><strong>Static Methods</strong></h3>
+			<div class="indent static">
+				<h4><kbd><p class="type">void</p> <strong>WiggleKit.StartHapticEngine()</strong></kbd></h4>
+				<p>Start the haptic engine of the iOS device.</p>
+				<ul>
+					<li>
+						<p>The <kbd><strong>WiggleKit</strong></kbd> class automatically starts the haptic engine when necessary.</p>
+					</li>
+					<li>
+						<p>External use of this method is only necessary in edge cases</p>
+					</li>
+				</ul>
+				<br>
+				<h4><kbd><p class="type">void</p> <strong>WiggleKit.StartVibration()</strong></kbd></h4>
+				<p>Play a vibration on the iOS device.</p>
+				<ul>
+					<li>
+						<p>As no curve for the vibration is specified, a simple dull, strong vibration is played</p>
+					</li>
+				</ul>
+				<br>
+				<h4><kbd><p class="type">void</p> <strong>WiggleKit.StartVibration(AnimationCurve intensityCurve, AnimationCurve sharpnessCurve, bool simpleControlPoints = false, float interpolationInterval = 0.05f)</strong></kbd></h4>
+				<p>Play a vibration on the iOS device with specified curves for the intensity and vibration of the vibration.</p>
+				<ul>
+					<li>
+						<p>The <kbd><strong>simpleControlPoints</strong></kbd> parameter is optional. It defaults to <kbd><strong>false</strong></kbd>.</p>
+					</li>
+					<li>
+						<p>If <kbd><strong>simpleControlPoints</strong></kbd> is true, the control points of the animation curve will be used as the control points for the vibration.</p>
+						<p>This option will result in a less accurate curve, as the tangents of the control points are ignored in the vibration. However, it is a less expensive operation.</p>
+					</li>
+					<li>
+						<p>If <kbd><strong>simpleControlPoints</strong></kbd> is false, the control points of the vibration will be extracted from the animation curve by evaluating the curve at each time interval defined by the <kbd><strong>interpolationInterval parameter</strong></kbd>.</p>
+						<p>This option will result in a more accurate curve, and although it is a more expensive operation, it is not noticeably so.</p>
+					</li>
+					<li>
+						<p>The <kbd><strong>interpolationInterval</strong></kbd> parameter is optional. It defaults to <kbd><strong>0.05</strong></kbd>.</p>
+						<p>A lower interpolation interval results in a more accurate curve, but a more expensive operation.</p>
+					</li>
+				</ul>
+				<br>
+			</div>
+			<h3><strong>Properties</strong></h3>
+			<div class="indent instance">
+				<h4><kbd><p class="type">System.Action&lt;string&gt;</p> <strong>onStartVibration</strong></kbd></h4>
+				<p>A delegate called when a vibration begins playing on the iOS device.</p>
+				<ul>
+					<li>
+						<p>The string parameter is the randomly generated unique identifier of the vibration.</p>
+					</li>
+				</ul>
+				<br>
+				<h4><kbd><p class="type">System.Action&lt;string&gt;</p> <strong>onStopVibration</strong></kbd></h4>
+				<p>A delegate called when a vibration completes playing on the iOS device.</p>
+				<ul>
+					<li>
+						<p>The string parameter is the randomly generated unique identifier of the vibration, the same one used in <kbd><strong>onStartVibration</strong></kbd> for each individual vibration.</p>
+					</li>
+				</ul>
+			</div>
+			<h3><strong>Methods</strong></h3>
+			<div class="indent instance">
+				<h4><kbd><p class="type">void</p> <strong>OnStartVibration(string id)</strong></kbd></h4>
+				<p>Calls the <kbd>onStartVibration</kbd> delegate.</p>
+				<ul>
+					<li>
+						<p>This method is called automatically when necessary by the plugin. Although publicly accessible, it should never be called externally.</p>
+					</li>
+				</ul>
+				<br>
+				<h4><kbd><p class="type">void</p> <strong>OnStopVibration(string id)</strong></kbd></h4>
+				<p>Calls the <kbd>onStopVibration</kbd> delegate.</p>
+				<ul>
+					<li>
+						<p>This method is called automatically when necessary by the plugin. Although publicly accessible, it should never be called externally.</p>
+					</li>
+				</ul>
+				<br>
+				<h4><kbd><p class="type">void</p> <strong>OnApplicationFocus(bool hasFocus)</strong></kbd></h4>
+				<p>Called when the application enters focus on the iOS device to automatically restart the haptic engine.</p>
+				<ul>
+					<li>
+						<p>This method is called automatically when necessary by the plugin. Although publicly accessible, it should never be called externally.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<br>
+	<hr><hr>
+	<br>
+	<h2>Support</h2>
+	<ul class="support">
+		<li>
+			<p><h4>email:</h4> robertmayunity@gmail.com</p>
+		</li>
+		<li>
+			<p><h4>website:</h4> <a href="http://robertzmay.com" target="_blank">robertzmay.com</a></p>
+		</li>
+	</ul>
+</body>
+</html>

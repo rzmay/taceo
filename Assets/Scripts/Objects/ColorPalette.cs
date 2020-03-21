@@ -11,11 +11,11 @@ public class ColorPalette : ScriptableObject
 
 	public enum Roles
 	{
-		primary,
-		secondary,
-		accent,
-		background,
-		neutral
+		Primary,
+		Secondary,
+		Accent,
+		Background,
+		Neutral
 	}
 
 	[System.Serializable]
