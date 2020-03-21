@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Lean.Touch;
+using TMPro;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -11,13 +12,18 @@ public class MainMenu : MonoBehaviour
 		MainMenu,
 		Game,
 		GameOver,
+		PostGame,
 		Tutorial
 	}
 
 	public GameObject mainMenuPanel;
+	public GameObject gameOverPanel;
+
+	public TMP_Text highScoreLabel;
 
 	// Start on main menu
 	public static AppState state = AppState.MainMenu;
+	public static SaveState saveState;
 
 	private static readonly int Hidden = Animator.StringToHash("hidden");
 
@@ -26,6 +32,9 @@ public class MainMenu : MonoBehaviour
 	{
 		// Start on main menu
 		state = AppState.MainMenu;
+		saveState = SaveSystem.LoadData();
+
+		highScoreLabel.text = saveState.highScore.ToString();
 
 		Lean.Touch.LeanTouch.OnFingerTap += HandleTap;
 	}
@@ -33,7 +42,21 @@ public class MainMenu : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		switch (state)
+		{
+			case AppState.MainMenu:
+				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, false);
+				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				break;
+			case AppState.Game:
+				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				break;
+			case AppState.PostGame:
+				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, false);
+				break;
+		}
 	}
 
 	private void HandleTap(LeanFinger finger)
@@ -42,10 +65,9 @@ public class MainMenu : MonoBehaviour
 		{
 			case AppState.MainMenu:
 				state = AppState.Game;
-				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
 				break;
 			default:
-				Debug.Log(state);
+				// Debug.Log(state);
 				break;
 		}
 	}

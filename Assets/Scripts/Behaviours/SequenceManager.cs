@@ -12,6 +12,8 @@ using Random = UnityEngine.Random;
 public class SequenceManager : MonoBehaviour
 {
 
+	public static SequenceManager unique;
+
 	[System.Serializable]
 	public class Sequence
 	{
@@ -62,7 +64,11 @@ public class SequenceManager : MonoBehaviour
 
 	public Sequence sequence;
 
+	public AnimatedLogo logo;
 	public TMP_Text debugText;
+
+	[HideInInspector]
+	public int lastHighScore = 0;
 
 	private int _sequenceIndex = 0;
 
@@ -77,6 +83,8 @@ public class SequenceManager : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
+	    unique = this;
+
 	    _state = MainMenu.AppState.MainMenu;
 
 	    LeanTouch.OnFingerTap += HandleTap;
@@ -116,6 +124,12 @@ public class SequenceManager : MonoBehaviour
 
     private void StartGame()
     {
+	    // Reset sequence
+	    sequence = new Sequence();
+
+	    // Load high score before game starts to keep a record if high score is beaten
+	    lastHighScore = MainMenu.saveState.highScore;
+
 	    StartCoroutine(StartRound());
     }
 
@@ -126,8 +140,10 @@ public class SequenceManager : MonoBehaviour
 
 	    yield return new WaitForSeconds(1);
 	    debugText.text = "Round Start";
+	    logo.SetState(AnimatedLogo.LogoState.Default);
 	    roundStart.Start();
 	    yield return new WaitForSeconds(2);
+	    logo.SetState(AnimatedLogo.LogoState.Focus);
 	    sequence.AddGesture();
 	    foreach (Sequence.Gesture gesture in sequence.Gestures)
 	    {
@@ -139,6 +155,7 @@ public class SequenceManager : MonoBehaviour
 		    yield return new WaitForSeconds(1.5f);
 	    }
 
+	    logo.SetState(AnimatedLogo.LogoState.Inverted);
 	    debugText.text = "Your turn";
 	    _awaitingInput = true;
 	    roundStart.Start();
@@ -150,9 +167,8 @@ public class SequenceManager : MonoBehaviour
 	    return vibration;
     }
 
-    private void CheckGesture(Sequence.Gesture gesture)
+    private IEnumerator CheckGesture(Sequence.Gesture gesture)
     {
-	    Debug.Log(gesture.ToString());
 	    if (gesture == sequence.Gestures[_sequenceIndex])
 	    {
 		    TapVibration vibration = TapVibrationFromGesture(gesture);
@@ -174,9 +190,16 @@ public class SequenceManager : MonoBehaviour
 		    _awaitingInput = false;
 		    _inputStart = Time.time;
 
+		    SaveData();
+
 		    debugText.text = "Game Over";
 		    MainMenu.state = MainMenu.AppState.GameOver;
 		    gameOver.Start();
+
+		    // Wait before exiting game view
+		    yield return new WaitForSeconds(2);
+		    debugText.text = "";
+		    MainMenu.state = MainMenu.AppState.PostGame;
 	    }
     }
 
@@ -187,7 +210,7 @@ public class SequenceManager : MonoBehaviour
 		    case MainMenu.AppState.Game:
 			    if (_awaitingInput)
 			    {
-					CheckGesture(Sequence.Gesture.Tap);
+					StartCoroutine(CheckGesture(Sequence.Gesture.Tap));
 			    }
 
 			    break;
@@ -207,7 +230,7 @@ public class SequenceManager : MonoBehaviour
 				    // If longer than tap, not a swipe, and younger than the beginning of input
 				    if (finger.Old && !finger.Swipe && finger.Age < Time.time - _inputStart)
 				    {
-					    CheckGesture(Sequence.Gesture.Long);
+					    StartCoroutine(CheckGesture(Sequence.Gesture.Long));
 				    }
 			    }
 
@@ -229,13 +252,13 @@ public class SequenceManager : MonoBehaviour
 				    float angle = Mathf.Atan2(finger.SwipeScaledDelta.y, finger.SwipeScaledDelta.x);
 				    Debug.Log($"Vector: {finger.SwipeScaledDelta}, Angle: {angle}");
 				    Debug.Log($"Cosine: {Mathf.Cos(angle)}, Sine: {Mathf.Sin(angle)}");
-				    if (Mathf.Cos(angle) > 0.8)
+				    if (Mathf.Abs(Mathf.Cos(angle)) > 0.8)
 				    {
-					    CheckGesture(Sequence.Gesture.SwipeHorizontal);
+					    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeHorizontal));
 				    }
-				    else if (Mathf.Sin(angle) > 0.8)
+				    else if (Mathf.Abs(Mathf.Sin(angle)) > 0.8)
 				    {
-					    CheckGesture(Sequence.Gesture.SwipeVertical);
+					    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeVertical));
 				    }
 			    }
 
@@ -250,5 +273,19 @@ public class SequenceManager : MonoBehaviour
     {
 	    _vibrationTime = Time.time;
 	    _vibrationCurve = vibration.intensityCurve;
+    }
+
+    private void SaveData()
+    {
+	    if (sequence.Gestures.Length > MainMenu.saveState.highScore)
+	    {
+		    SaveState newSave = new SaveState(
+			    sequence.Gestures.Length,
+			    sequence
+			);
+
+		    MainMenu.saveState = newSave;
+		    SaveSystem.SaveData(MainMenu.saveState);
+	    }
     }
 }

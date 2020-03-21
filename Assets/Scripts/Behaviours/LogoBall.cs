@@ -58,10 +58,11 @@ public class LogoBall : MonoBehaviour
 	    // On state change
 	    if (_state != MainMenu.state)
 	    {
-		    // Switching from GameOver
-		    if (_state == MainMenu.AppState.GameOver)
+		    // Switching from PostGame
+		    if (_state == MainMenu.AppState.PostGame)
 		    {
 			    transform.position = _originalLocation;
+			    _rb.velocity = Vector2.zero;
 		    }
 		    _state = MainMenu.state;
 	    }
@@ -80,6 +81,9 @@ public class LogoBall : MonoBehaviour
 		    case MainMenu.AppState.GameOver:
 			    GameOver();
 			    break;
+		    case MainMenu.AppState.PostGame:
+			    GameOver();
+			    break;
 		    default:
 			    // Position static
 			    _rb.bodyType = RigidbodyType2D.Static;
@@ -90,7 +94,10 @@ public class LogoBall : MonoBehaviour
 
     private void Wave()
     {
+	    ringCollider.enabled = true;
+	    _rb.bodyType = RigidbodyType2D.Dynamic;
 	    _rb.gravityScale = 0.0f;
+
 	    Vector2 movement = new Vector2(
 		    0,
 		    Mathf.Sin((Time.time + _phase) * (2f * (float) Math.PI / wavePeriod)) * waveAmplitude
@@ -102,6 +109,7 @@ public class LogoBall : MonoBehaviour
     private void MoveTowardsTouch()
     {
 	    ringCollider.enabled = true;
+	    _rb.bodyType = RigidbodyType2D.Dynamic;
 	    _rb.gravityScale = 1.0f;
 
 	    // Apply attraction to all fingers
@@ -112,13 +120,11 @@ public class LogoBall : MonoBehaviour
 			    finger.ScreenPosition,
 			    transform.position.z
 			);
-		    Debug.Log(fingerPos);
 		    Vector2 fingerDirection = (fingerPos - _rb.position);
 		    _rb.AddForce(touchAttraction * Time.fixedDeltaTime * fingerDirection);
 	    }
 
 	    // Apply vibration attraction
-	    Debug.Log(vibrationIntensity);
 	    _rb.AddForce(vibrationInfluence * vibrationIntensity * Time.fixedDeltaTime * Vector2.up);
     }
 
