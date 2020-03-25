@@ -58,13 +58,20 @@ public class SequenceManager : MonoBehaviour
 		public VibrationData vibration;
 	}
 
+	[Header("Vibrations")]
 	public List<TapVibration> vibrations = new List<TapVibration>();
 	public VibrationData roundStart;
 	public VibrationData gameOver;
-
+	
+	[Space]
 	public Sequence sequence;
 
+	[Space] [Header("Appearance")]
 	public AnimatedLogo logo;
+	public ParticleSystem roundStartParticle;
+	public ParticleSystem gameOverParticle;
+	
+	[Space] [Header("Debug")]
 	public TMP_Text debugText;
 
 	[HideInInspector]
@@ -74,6 +81,8 @@ public class SequenceManager : MonoBehaviour
 
 	private float _inputStart;
 	private bool _awaitingInput = false;
+
+	private bool _isReplaying = false;
 
 	private float _vibrationTime;
 	private AnimationCurve _vibrationCurve = AnimationCurve.Constant(0, 0, 0);
@@ -104,6 +113,9 @@ public class SequenceManager : MonoBehaviour
 			    case MainMenu.AppState.Game:
 					StartGame();
 					break;
+			    case MainMenu.AppState.Replay:
+				    StartReplay();
+				    break;
 			    default:
 				    Debug.Log(_state);
 				    break;
@@ -124,8 +136,23 @@ public class SequenceManager : MonoBehaviour
 
     private void StartGame()
     {
+	    _isReplaying = false;
+	    
 	    // Reset sequence
 	    sequence = new Sequence();
+
+	    // Load high score before game starts to keep a record if high score is beaten
+	    lastHighScore = MainMenu.saveState.highScore;
+
+	    StartCoroutine(StartRound());
+    }
+    
+    private void StartReplay()
+    {
+	    _isReplaying = true;
+	    
+	    // Reset sequence
+	    sequence = MainMenu.saveState.sequence;
 
 	    // Load high score before game starts to keep a record if high score is beaten
 	    lastHighScore = MainMenu.saveState.highScore;
@@ -138,10 +165,14 @@ public class SequenceManager : MonoBehaviour
 	    _awaitingInput = false;
 	    _sequenceIndex = 0;
 
+	    // Feedback
 	    yield return new WaitForSeconds(1);
 	    debugText.text = "Round Start";
 	    logo.SetState(AnimatedLogo.LogoState.Default);
 	    roundStart.Start();
+	    roundStartParticle.Play();
+	    
+	    // Reading
 	    yield return new WaitForSeconds(2);
 	    logo.SetState(AnimatedLogo.LogoState.Focus);
 	    sequence.AddGesture();
@@ -155,9 +186,11 @@ public class SequenceManager : MonoBehaviour
 		    yield return new WaitForSeconds(1.5f);
 	    }
 
+	    // "Your turn" feedback
 	    logo.SetState(AnimatedLogo.LogoState.Inverted);
 	    debugText.text = "Your turn";
 	    _awaitingInput = true;
+	    _inputStart = Time.time;
 	    roundStart.Start();
     }
 
@@ -180,20 +213,32 @@ public class SequenceManager : MonoBehaviour
 		    // If round is over
 		    if (_sequenceIndex == sequence.Gestures.Length)
 		    {
-			    _awaitingInput = false;
-			    StartCoroutine(StartRound());
+			    if (!_isReplaying)
+			    {
+				    _awaitingInput = false;
+				    StartCoroutine(StartRound());
+			    }
+			    else
+			    {
+				    roundStart.Start();
+				    MainMenu.state = MainMenu.AppState.GameOver;
+				    
+				    yield return new WaitForSeconds(2);
+				    debugText.text = "";
+				    MainMenu.state = MainMenu.AppState.PostGame;
+			    }
 		    }
 	    }
 	    else
 	    {
 		    // Game is over
 		    _awaitingInput = false;
-		    _inputStart = Time.time;
 
-		    SaveData();
+		    if (!_isReplaying) SaveData();
 
 		    debugText.text = "Game Over";
 		    MainMenu.state = MainMenu.AppState.GameOver;
+		    gameOverParticle.Play();
 		    gameOver.Start();
 
 		    // Wait before exiting game view
@@ -205,67 +250,49 @@ public class SequenceManager : MonoBehaviour
 
     private void HandleTap(LeanFinger finger)
     {
-	    switch (_state)
+	    if (_state == MainMenu.AppState.Game || _state == MainMenu.AppState.Replay)
 	    {
-		    case MainMenu.AppState.Game:
-			    if (_awaitingInput)
-			    {
-					StartCoroutine(CheckGesture(Sequence.Gesture.Tap));
-			    }
-
-			    break;
-		    default:
-			    Debug.Log(_state);
-			    break;
+		    if (_awaitingInput)
+		    {
+			    StartCoroutine(CheckGesture(Sequence.Gesture.Tap));
+		    }
 	    }
     }
 
     private void HandleHold(LeanFinger finger)
     {
-	    switch (_state)
+	    if (_state == MainMenu.AppState.Game || _state == MainMenu.AppState.Replay)
 	    {
-		    case MainMenu.AppState.Game:
-			    if (_awaitingInput)
+		    if (_awaitingInput)
+		    {
+			    // If longer than tap, not a swipe, and younger than the beginning of input
+			    if (finger.Old && !finger.Swipe && finger.Age < Time.time - _inputStart)
 			    {
-				    // If longer than tap, not a swipe, and younger than the beginning of input
-				    if (finger.Old && !finger.Swipe && finger.Age < Time.time - _inputStart)
-				    {
-					    StartCoroutine(CheckGesture(Sequence.Gesture.Long));
-				    }
+				    StartCoroutine(CheckGesture(Sequence.Gesture.Long));
 			    }
-
-			    break;
-		    default:
-			    Debug.Log(_state);
-			    break;
+		    }
 	    }
     }
 
     private void HandleSwipe(LeanFinger finger)
     {
-	    switch (_state)
+	    if (_state == MainMenu.AppState.Game || _state == MainMenu.AppState.Replay)
 	    {
-		    case MainMenu.AppState.Game:
-			    // Make sure swipe did not begin before input
-			    if (_awaitingInput && finger.Age < Time.time - _inputStart)
+		    // Make sure swipe did not begin before input
+		    if (_awaitingInput && finger.Age < Time.time - _inputStart)
+		    {
+			    float angle = Mathf.Atan2(finger.SwipeScaledDelta.y, finger.SwipeScaledDelta.x);
+			    Debug.Log($"Vector: {finger.SwipeScaledDelta}, Angle: {angle}");
+			    Debug.Log($"Cosine: {Mathf.Cos(angle)}, Sine: {Mathf.Sin(angle)}");
+			    if (Mathf.Abs(Mathf.Cos(angle)) > 0.8)
 			    {
-				    float angle = Mathf.Atan2(finger.SwipeScaledDelta.y, finger.SwipeScaledDelta.x);
-				    Debug.Log($"Vector: {finger.SwipeScaledDelta}, Angle: {angle}");
-				    Debug.Log($"Cosine: {Mathf.Cos(angle)}, Sine: {Mathf.Sin(angle)}");
-				    if (Mathf.Abs(Mathf.Cos(angle)) > 0.8)
-				    {
-					    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeHorizontal));
-				    }
-				    else if (Mathf.Abs(Mathf.Sin(angle)) > 0.8)
-				    {
-					    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeVertical));
-				    }
+				    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeHorizontal));
 			    }
-
-			    break;
-		    default:
-			    Debug.Log(_state);
-			    break;
+			    else if (Mathf.Abs(Mathf.Sin(angle)) > 0.8)
+			    {
+				    StartCoroutine(CheckGesture(Sequence.Gesture.SwipeVertical));
+			    }
+		    }
 	    }
     }
 
@@ -280,7 +307,7 @@ public class SequenceManager : MonoBehaviour
 	    if (sequence.Gestures.Length > MainMenu.saveState.highScore)
 	    {
 		    SaveState newSave = new SaveState(
-			    sequence.Gestures.Length,
+			    sequence.Gestures.Length - 1,
 			    sequence
 			);
 

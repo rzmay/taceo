@@ -43,17 +43,17 @@ public class LogoBall : MonoBehaviour
     void Start()
     {
 	    _rb = GetComponent<Rigidbody2D>();
-	    _originalLocation = _rb.position;
 	    _camera = Camera.main;
 
 	    _phase = Random.value;
 	    _state = MainMenu.AppState.MainMenu;
 
+	    _originalLocation = _rb.position;
+
 	    vibrationIntensity = 0.0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
 	    // On state change
 	    if (_state != MainMenu.state)
@@ -66,10 +66,7 @@ public class LogoBall : MonoBehaviour
 		    }
 		    _state = MainMenu.state;
 	    }
-    }
-
-    private void FixedUpdate()
-    {
+	    
 	    switch (MainMenu.state)
 	    {
 		    case MainMenu.AppState.MainMenu:
@@ -83,6 +80,9 @@ public class LogoBall : MonoBehaviour
 			    break;
 		    case MainMenu.AppState.PostGame:
 			    GameOver();
+			    break;
+		    case MainMenu.AppState.Replay:
+			    MoveTowardsTouch();
 			    break;
 		    default:
 			    // Position static
@@ -111,6 +111,8 @@ public class LogoBall : MonoBehaviour
 	    ringCollider.enabled = true;
 	    _rb.bodyType = RigidbodyType2D.Dynamic;
 	    _rb.gravityScale = 1.0f;
+	    
+	    StayInRing();
 
 	    // Apply attraction to all fingers
 	    foreach (LeanFinger finger in LeanTouch.Fingers)
@@ -139,6 +141,16 @@ public class LogoBall : MonoBehaviour
 		    _rb.position.x,
 		    5
 		);
+    }
+
+    private void StayInRing()
+    {
+	    // If ball has left circle, return to original position
+	    if (!ringCollider.bounds.Contains(_rb.position))
+	    {
+		    _rb.position = _originalLocation;
+		    _rb.velocity = Vector2.zero;
+	    }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -13,11 +13,13 @@ public class MainMenu : MonoBehaviour
 		Game,
 		GameOver,
 		PostGame,
+		Replay,
 		Tutorial
 	}
 
 	public GameObject mainMenuPanel;
 	public GameObject gameOverPanel;
+	public GameObject replayPanel;
 
 	public TMP_Text highScoreLabel;
 
@@ -36,7 +38,7 @@ public class MainMenu : MonoBehaviour
 
 		highScoreLabel.text = saveState.highScore.ToString();
 
-		Lean.Touch.LeanTouch.OnFingerTap += HandleTap;
+		LeanTouch.OnFingerTap += HandleTap;
 	}
 
 	// Update is called once per frame
@@ -47,14 +49,22 @@ public class MainMenu : MonoBehaviour
 			case AppState.MainMenu:
 				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, false);
 				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				replayPanel.GetComponent<Animator>().SetBool(Hidden, true);
 				break;
 			case AppState.Game:
 				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
 				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				replayPanel.GetComponent<Animator>().SetBool(Hidden, true);
 				break;
 			case AppState.PostGame:
 				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
 				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, false);
+				replayPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				break;
+			case AppState.Replay:
+				mainMenuPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				gameOverPanel.GetComponent<Animator>().SetBool(Hidden, true);
+				replayPanel.GetComponent<Animator>().SetBool(Hidden, false);
 				break;
 		}
 	}
