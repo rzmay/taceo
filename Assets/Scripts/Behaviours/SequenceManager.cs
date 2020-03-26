@@ -51,15 +51,8 @@ public class SequenceManager : MonoBehaviour
 
 	}
 
-	[System.Serializable]
-	public struct TapVibration
-	{
-		public Sequence.Gesture gesture;
-		public VibrationData vibration;
-	}
-
 	[Header("Vibrations")]
-	public List<TapVibration> vibrations = new List<TapVibration>();
+	public GestureVibrations gestureVibrations;
 	public VibrationData roundStart;
 	public VibrationData gameOver;
 	
@@ -178,7 +171,7 @@ public class SequenceManager : MonoBehaviour
 	    sequence.AddGesture();
 	    foreach (Sequence.Gesture gesture in sequence.Gestures)
 	    {
-		    TapVibration vibration = TapVibrationFromGesture(gesture);
+		    GestureVibrations.GestureVibration vibration = TapVibrationFromGesture(gesture);
 		    debugText.text = vibration.gesture.ToString();
 		    vibration.vibration.Start();
 		    LogoVibration(vibration.vibration);
@@ -194,9 +187,9 @@ public class SequenceManager : MonoBehaviour
 	    roundStart.Start();
     }
 
-    private TapVibration TapVibrationFromGesture(Sequence.Gesture gesture)
+    private GestureVibrations.GestureVibration TapVibrationFromGesture(Sequence.Gesture gesture)
     {
-	    TapVibration vibration = vibrations.Where(v => v.gesture == gesture).ToArray()[0];
+	    GestureVibrations.GestureVibration vibration = gestureVibrations.vibrations.Where(v => v.gesture == gesture).ToArray()[0];
 	    return vibration;
     }
 
@@ -204,7 +197,7 @@ public class SequenceManager : MonoBehaviour
     {
 	    if (gesture == sequence.Gestures[_sequenceIndex])
 	    {
-		    TapVibration vibration = TapVibrationFromGesture(gesture);
+		    GestureVibrations.GestureVibration vibration = TapVibrationFromGesture(gesture);
 		    debugText.text = vibration.gesture.ToString();
 		    vibration.vibration.Start();
 
