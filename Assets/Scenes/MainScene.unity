@@ -1742,7 +1742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &306749084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 203.15
+  m_fontSize: 203.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2623,7 +2623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404724568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2111576024}
@@ -9246,7 +9246,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 118.5
+  m_fontSize: 118.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10269,7 +10269,7 @@ MonoBehaviour:
   - {fileID: 114469451}
   - {fileID: 1281127614}
   - {fileID: 2007383673}
-  padding: 0.5
+  padding: 1
 --- !u!1 &700333482
 GameObject:
   m_ObjectHideFlags: 0
@@ -10365,7 +10365,7 @@ MonoBehaviour:
   - {fileID: 535955966}
   - {fileID: 821707222}
   - {fileID: 941569111}
-  padding: 0.5
+  padding: 1
 --- !u!1 &731685296
 GameObject:
   m_ObjectHideFlags: 0
@@ -10914,7 +10914,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 203.15
+  m_fontSize: 203.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11004,7 +11004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &787147266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13822,7 +13822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1023234262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14331,7 +14331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1076976038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16892,7 +16892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1278109323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17381,7 +17381,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 203.15
+  m_fontSize: 203.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17536,7 +17536,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 203.15
+  m_fontSize: 203.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18771,7 +18771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1415174378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23519,7 +23519,7 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 0.203125, g: 0.16145833, b: 0.25, a: 1}
         key1: {r: 0.203125, g: 0.16145833, b: 0.25, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -23534,7 +23534,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 49151
+        atime1: 65535
         atime2: 65535
         atime3: 65535
         atime4: 0
@@ -23543,7 +23543,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24272,7 +24272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439918633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2111576024}
@@ -24861,7 +24861,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 203.15
+  m_fontSize: 203.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -25313,7 +25313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1523375739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31638,7 +31638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675782405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2111576024}
@@ -32463,7 +32463,7 @@ GameObject:
   - component: {fileID: 1739161602}
   - component: {fileID: 1739161605}
   m_Layer: 5
-  m_Name: Tutorial
+  m_Name: TutorialPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32504,7 +32504,7 @@ Animator:
   m_GameObject: {fileID: 1739161600}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb6df919829924e9f8b91bde511841f1, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7d3ac0f5b0e2423fbfccf7895abea0d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32561,6 +32561,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2655c7fea08f4d09ac8c6343c21041d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sections:
+  - {fileID: 2098332079}
+  - {fileID: 2056799181}
+  - {fileID: 700333486}
+  - {fileID: 696954520}
+  - {fileID: 1583162428}
+  tutorialTextAnimator: {fileID: 9100000, guid: a926ae05366dd428ead1de7e147da687,
+    type: 2}
+  delay: 1
 --- !u!1 &1743757298
 GameObject:
   m_ObjectHideFlags: 0
@@ -32579,7 +32588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1743757299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33580,7 +33589,6 @@ GameObject:
   - component: {fileID: 1844884224}
   - component: {fileID: 1844884227}
   - component: {fileID: 1844884226}
-  - component: {fileID: 1844884225}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -33607,25 +33615,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1844884225
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844884223}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a926ae05366dd428ead1de7e147da687, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1844884226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34890,6 +34879,7 @@ MonoBehaviour:
   mainMenuPanel: {fileID: 1743757298}
   gameOverPanel: {fileID: 1076976037}
   replayPanel: {fileID: 1023234261}
+  tutorialPanel: {fileID: 1739161600}
   highScoreLabel: {fileID: 1871652304}
 --- !u!1 &1966893929
 GameObject:
@@ -34909,7 +34899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1966893930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35360,7 +35350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2033354571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36482,7 +36472,7 @@ MonoBehaviour:
   - {fileID: 306749087}
   - {fileID: 1415174381}
   - {fileID: 1523375742}
-  padding: 0.5
+  padding: 1
 --- !u!1 &2097279264
 GameObject:
   m_ObjectHideFlags: 0
@@ -36501,7 +36491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2097279265
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36772,7 +36762,7 @@ MonoBehaviour:
   subsections:
   - {fileID: 494050308}
   - {fileID: 203388856}
-  padding: 0.5
+  padding: 1
 --- !u!1 &2107648790
 GameObject:
   m_ObjectHideFlags: 0

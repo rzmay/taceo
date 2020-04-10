@@ -17,8 +17,8 @@ public static class SwiftPostProcessor {
 			var projPath = buildPath + "/Unity-iPhone.xcodeproj/project.pbxproj";
 			var proj = new PBXProject();
 			proj.ReadFromFile(projPath);
-
-			var targetGuid = proj.TargetGuidByName(proj.GetUnityMainTargetGuid());
+			
+			var targetGuid = proj.TargetGuidByName(proj.GetUnityFrameworkTargetGuid());
 
 			//// Configure build settings
 			proj.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");

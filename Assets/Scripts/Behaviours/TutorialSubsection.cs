@@ -4,48 +4,46 @@ using System.Dynamic;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
-using Util;
 
 public class TutorialSubsection : MonoBehaviour
 {
     
-    private static readonly int TextIn = Animator.StringToHash("In");
-    private static readonly int TextOut = Animator.StringToHash("Out");
+    private static readonly int TextHidden = Animator.StringToHash("hidden");
 
     [System.Serializable]
     public class TutorialText
     {
         public TMP_Text text;
         public float entryTime;
-
-        [CanBeNull] 
-        public VibrationData vibration;
+        
+        public Util.VibrationData vibration;
 
         public Animator animator => _animator;
         private Animator _animator;
 
         public void SetAnimator()
         {
-            _animator = text.GetComponent<Animator>();
+            _animator = text.gameObject.AddComponent<Animator>();
+            _animator.runtimeAnimatorController = TutorialMenu.TutorialTextAnimator;
         }
 
         public void Present()
         {
-            _animator.SetTrigger(TextIn);
-            
-            vibration?.Start();
+            _animator.SetBool(TextHidden, false);
+
+            if (vibration?.intensityCurve.keys.Length > 0) vibration?.Start();
         }
 
         public void Hide()
         {
-            _animator.SetTrigger(TextOut);
+            _animator.SetBool(TextHidden, true);
         }
 
         public IEnumerator Init(float audioDuration, float delay)
         {
             yield return new WaitForSeconds(entryTime);
             Present();
-            yield return new WaitForSeconds(audioDuration - entryTime + delay);
+            yield return new WaitForSeconds(audioDuration + delay - entryTime);
             Hide();
         }
     }
@@ -62,6 +60,7 @@ public class TutorialSubsection : MonoBehaviour
         foreach (TutorialText tutorialText in texts)
         {
             tutorialText.SetAnimator();
+            tutorialText.Hide();
         }
     }
 
@@ -73,11 +72,12 @@ public class TutorialSubsection : MonoBehaviour
 
     public void Play()
     {
-        AudioSource.PlayClipAtPoint(audio, Vector3.zero);
-
+        AudioSource.PlayClipAtPoint(audio, Camera.main.transform.position);
+        float length = audio.length;
+        
         foreach (TutorialText tutorialText in texts)
         {
-            tutorialText.Init(audio.length, delay);
+            StartCoroutine(tutorialText.Init(length, delay));
         }
     }
 }

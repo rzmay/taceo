@@ -9,21 +9,9 @@ public class TutorialSection : MonoBehaviour
 
     public float padding;
 
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator Play()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Play()
-    {
-        StartCoroutine(PlaySubsection(0));
+        yield return StartCoroutine(PlaySubsection(0));
     }
 
     private IEnumerator PlaySubsection(int index)
@@ -31,8 +19,8 @@ public class TutorialSection : MonoBehaviour
         if (index < subsections.Count)
         {
             subsections[index].Play();
-            yield return new WaitForSeconds(subsections[index].audio.length + padding);
-            StartCoroutine(PlaySubsection(index + 1));
+            yield return new WaitForSeconds(subsections[index].audio.length + subsections[index].delay + padding);
+            yield return PlaySubsection(index + 1);
         }
     }
 }

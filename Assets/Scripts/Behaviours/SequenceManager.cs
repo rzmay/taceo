@@ -301,7 +301,8 @@ public class SequenceManager : MonoBehaviour
 	    {
 		    SaveState newSave = new SaveState(
 			    sequence.Gestures.Length - 1,
-			    sequence
+			    sequence,
+			    MainMenu.saveState.hasSeenTutorial
 			);
 
 		    MainMenu.saveState = newSave;
